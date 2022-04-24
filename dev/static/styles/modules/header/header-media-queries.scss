@@ -1,0 +1,81 @@
+@media screen and (min-width: 991.8px) {
+    header {
+        .container {
+            padding: 24px $desktop-side-indent;
+            background: url("../images/common/header/header-bg-img.png");
+            background-size: 480px;
+            background-repeat: no-repeat;
+            background-position: 90% center;
+
+            h1 {
+                margin-top: 164px;
+                font-size: 64px;
+            }
+
+            .description {
+                margin-top: 24px;
+                font-size: 30px;
+                line-height: 120%;
+                max-width: 720px;
+            }
+
+
+            .lang-switch {
+                text-align: right;
+                margin-top: 56px;
+                font-size: 18px;
+            }
+
+            @keyframes blinker {
+                0% {
+                    opacity: 1.0;
+                }
+
+                50% {
+                    opacity: 0.2;
+                }
+
+                100% {
+                    opacity: 1.0;
+                }
+            }
+
+            @-webkit-keyframes blinker {
+                0% {
+                    opacity: 1.0;
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+
+                100% {
+                    opacity: 1.0;
+                }
+            }
+
+
+
+            .desktop-scroll-arrow-wrap {
+                margin-top: 10px;
+                display: block;
+                text-align: center;
+
+                .scroll-arrow {
+                    display: inline-block;
+                    width: 24px;
+                    height: auto;
+
+                    animation-name: blinker;
+                    animation-iteration-count: infinite;
+                    animation-timing-function: ease;
+                    animation-duration: 3s;
+                    -webkit-animation-name: blinker;
+                    -webkit-animation-iteration-count: infinite;
+                    -webkit-animation-timing-function: ease;
+                    -webkit-animation-duration: 3s;
+                }
+            }
+        }
+    }
+}

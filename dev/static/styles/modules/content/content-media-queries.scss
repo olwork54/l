@@ -1,0 +1,378 @@
+@media screen and (min-width: 991.8px) {
+    section.main-function {
+        .container {
+            .card-slider {
+                .cards {
+                    display: flex;
+                    align-items: stretch;
+
+                    .card {
+                        position: static;
+                        transform: initial;
+                        flex: 1;
+
+                        &.next,
+                        &.prev {
+                            order: 2;
+                            transform: translateX(0);
+                            margin-bottom: 36px;
+
+                            &::after {
+                                display: none;
+                            }
+                        }
+
+                        &.prev {
+                            order: 1;
+
+                        }
+
+                        &.next {
+                            order: 3;
+
+                        }
+
+                        &.curr {
+                            order: 2;
+                            margin-top: 36px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.interface {
+        .container {
+            .inteface-slider {
+                margin-top: 64px;
+                display: flex;
+                align-items: flex-start;
+
+                .screen-view {
+                    flex: 3;
+                    margin-top: 0;
+                    margin-right: 32px;
+
+                    .progress-wrap {
+                        margin-top: 36px;
+                        width: 100%;
+                        bottom: 0;
+                    }
+                }
+
+                .name-list {
+                    flex: 1;
+                    padding-top: 0;
+                    margin-left: 24px;
+
+                    .list-item {
+                        position: relative;
+                        background-color: transparent;
+                        transition: background-color ease $fast, color ease $fast;
+
+                        span {
+                            padding-left: 12px;
+                            font-size: 16px;
+                        }
+
+                        & span:before {
+                            content: '';
+                            position: absolute;
+                            left: -36px;
+                            top: 12px;
+                            border: 18px solid transparent;
+                        }
+
+                        &.active span {
+                            padding: 6px 24px 6px 12px;
+                            border-radius: 0 32px 32px 0;
+
+                            &:before {
+                                border-right: 18px solid white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.appointment {
+        .container {
+            .appointment-list {
+                position: relative;
+                padding-top: 0;
+                margin-top: 48px;
+                max-width: 50%;
+                padding-right: 32px;
+                padding: 36px 32px 36px 0;
+
+                .list-item {
+                    .preview {
+                        margin: 0;
+                        padding: 0 32px;
+                        position: absolute;
+                        top: 50%;
+                        left: 100%;
+                        width: 100%;
+                        max-width: 640px;
+                        height: 100%;
+                        object-fit: contain;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+    }
+
+    section.capabilities {
+        .container {
+            .capabilities-list {
+                display: flex;
+                flex-wrap: wrap;
+
+                .list-item {
+                    width: calc(50% - 18px);
+
+                    .text{
+                        height: auto;
+                    }
+
+                    &:nth-child(2n + 1) {
+                        margin: 18px 18px 18px 0;
+                    }
+
+                    &:nth-child(2n) {
+                        margin: 18px 0 18px 18px;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .areas-of-use{
+        ul{
+            li{
+                width: calc(50% - 24px);
+
+                &:nth-child(2n){
+                    margin-left: 24px;
+                }
+                &:nth-child(2n + 1){
+                    margin-right: 24px;
+                }
+            }
+        }
+    }
+
+    section.solutions {
+        .container {
+            .solutions-list {
+                margin-top: 72px;
+                position: relative;
+                margin-left: 50%;
+                padding-left: 32px;
+                height: 800px;
+                transition: height ease $slow;
+
+                .list-item {
+                    position: static;
+
+                    .preview {
+                        margin: 0;
+                        padding: 0 32px;
+                        position: absolute;
+                        left:  -100%;
+                        top: 50%;
+                        width: 100%;
+                        height: 360px;
+                        object-fit: contain;
+                        transform: translateY(-50%);
+                    }
+
+                    &.active {
+                        .item-wrap {
+                            display: inline-block;
+                            width: calc(100% - 7px);
+                        }
+
+                        .progress-wrap {
+                            display: inline-block;
+                            position: relative;
+                            
+                            height: 60px;
+                            width: 6px;
+                            background: #f2f2f2;
+                            border-radius: 8px;
+                        }
+
+                        .progress {
+                            position: absolute;
+                            top: initial;
+                            left: 0;
+                            bottom: 0;
+                            width: 6px;
+                            border-radius: 8px;
+                            height: 0%;
+                            background: $accent-light;
+
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    section.pricing {
+        font-size: 16px;
+
+        .container {
+            padding-top: $vertical-section-desktop-indent;
+
+            .pricing-slider {
+                margin: 64px 0 0;
+                display: flex;
+                justify-content: center;
+                align-items: stretch;
+
+                .price-card,
+                .price-card.prev,
+                .price-card.next,
+                .price-card.curr {
+                    position: static;
+                    width: 33%;
+                    max-width: 360px;
+                    padding: 36px 24px;
+                    transform: initial;
+                    margin-top: 0;
+                    height: initial;
+                    margin: 0 8px;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    &::after {
+                        display: none;
+                    }
+                }
+                .price-card.main {
+                    .buy-btn {
+                        padding: 16px 24px;
+                    }
+                }
+
+                .price-wrap {
+                    min-height: 64px;
+                    margin-top: 24px;
+                }
+
+                .description {
+                    display: inline-block;
+                    
+                }
+
+                .buy-btn {
+                    padding: 16px 24px;
+                }
+
+                .benefits {
+                    margin-top: 36px;
+
+                    .benefits-list {
+                        margin-top: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    section.partners {
+        .logo-list-wrap {
+            .logo-list {
+                display: flex;
+                justify-content: space-around;
+
+                .logo-item,
+                .logo-item.prev,
+                .logo-item.curr,
+                .logo-item.next {
+                    position: static;
+                    transform: initial;
+                    max-width: 33%;
+                    margin: 0 48px;
+                }
+            }
+        }
+    }
+
+    section.instruction {
+        .container {
+            .instruction-list {
+                margin-top: 72px;
+                display: flex;
+
+                .list-item {
+                    margin-top: 0;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 0 24px;
+
+                    .number {
+                        font-size: 1.4em;
+                        position: static;
+                    }
+
+                    .thumb {
+                        margin-top: 24px;
+                        position: static;
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    .text-wrap {
+                        margin-left: 0;
+                        text-align: center;
+
+                        .title {
+                            margin-top: 24px;
+                        }
+
+                        .text {
+                            display: inline-block;
+                            margin-top: 16px;
+                        }
+                    }
+
+                    &::after {
+                        background: url("../images/common/instruction/instruction-desktop-arrow.svg");
+                        background-repeat: no-repeat;
+                        background-position: 100% 0;
+                        background-size: cover;
+                        width: 40%;
+                        height: 8px;
+                        top: 96px;
+                        left: 80%
+                    }
+                }
+            }
+
+            .buy-btn {
+                margin-top: 64px;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                width: initial;
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+#modal-form.modal 
+    .modal-wrap
+        h2.title Free trial 30 days
+        button#modal-form-close-btn.close-btn
+        .content
+            form(id="input-form", action="#", method="POST").modal-form
+                .input-wrap
+                    label 
+                        +ru("Введите имя")
+                        +en("Enter your name")
+                    input(name="name", type="text", required)
+                .input-wrap
+                    label 
+                        +ru("Введите ваш email")
+                        +en("Enter your email")
+                    input.email(name="email",type="email", required )
+
+                .input-group   
+                    label 
+                        +ru("Мессенджер")
+                        +en("Messenger")
+                    .select-wrap
+                        select(name="messenger-type")
+                            option(value="Facebook") Facebook
+                            option(value="Viber") Viber
+                            option(value="Skype") Skype
+                            option(value="Telegram") Telegram
+                            option(value="WhatsApp") WhatsApp
+                    .input-wrap
+                        label 
+                            +ru("Ваш мессенджер")
+                            +en("Your ID")
+                        input(name="messenger", type="text", required)
+
+
+
+                .input-wrap
+                    label 
+                        +ru("Введите вашу страну")
+                        +en("Enter your country")
+                    input(name="country", type="text", required)
+                .select-wrap
+                    select(name="problem", required)
+                        option(value="", disabled, selected) 
+                            +ru("Какую задачу хотите решить?")
+                            +en("What problem do you want to solve?")
+                        option(value="Create an Affiliate Network") 
+                            +ru("Создать CPA сеть")
+                            +en("Create an Affiliate Network")
+                        option(value="Create a referral program")  
+                            +ru("Создать реферальную программу")
+                            +en("Create a referral program")
+                        option(value="Affiliate Network for your product") 
+                            +ru("CPA сеть для своего продукта")
+                            +en("Affiliate network for your product")
+                        option(value="Migration of an existing Affiliate Network") 
+                            +ru("Миграция существующей CPA сети")
+                            +en("Migration of an existing Affiliate Network")
+                        option(value="Other") 
+                            +ru("Другое")
+                            +en("Other")
+
+                input(type="hidden", name="utm")
+                button(type="submit").send-btn Free 30 days trial
+                input(type="hidden", name="fbzx", value="-3300453198507295392")
+                

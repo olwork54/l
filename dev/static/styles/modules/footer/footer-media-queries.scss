@@ -1,0 +1,58 @@
+@media screen and (min-width: 991.8px) {
+    footer {
+
+        .container {
+            .content-wrap {
+                margin-top: 64px;
+                display: flex;
+                padding-bottom: 48px;
+
+                .logo {
+                    margin: 0 24px 0 0;
+                    flex: 1;
+
+                    img {
+                        height: 48px;
+                        width: auto;
+                    }
+                }
+
+                .contact-list,
+                .category-list {
+                    margin: 0 24px;
+                    flex: 1;
+
+                }
+
+                .social-media-list {
+                    position: absolute;
+                    left: 0;
+                    bottom: 36px;
+                }
+
+                .contact-list .title,
+                .category-list .title,
+                .social-media-list .title {
+                    text-align-last: left;
+                }
+
+                .contact-list {
+                    .list-item {
+                        text-align: left;
+                    }
+
+                }
+
+                .category-list {
+                    .list-item {
+                        text-align: left;
+                    }
+
+                    &.continuation {
+                        margin-top: 27px;
+                    }
+                }
+            }
+        }
+    }
+}

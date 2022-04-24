@@ -1,0 +1,277 @@
+@import "utils/libs";
+@import "utils/vars";
+@import "utils/mixins";
+// @import "utils/fonts";
+@import "utils/sprite";
+//@include sprites($spritesheet-sprites);
+
+html {
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  height: 100%;
+
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+body.overflow {
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea {
+  vertical-align: middle;
+}
+
+textarea {
+  resize: none;
+}
+
+section {
+  position: relative;
+}
+
+input,
+select,
+button {
+  outline: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 25%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+#preloader {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  background: $header-background;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  min-height: 100vh;
+  opacity: 0;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+
+    img {
+      width: 218px;
+      height: 48px;
+      object-fit: contain;
+      animation: pulse 1s alternate-reverse infinite;
+    }
+
+    .logo {
+      opacity: 0;
+      transition: opacity ease $slow;
+
+      &.show {
+        opacity: 1;
+        transition: opacity ease $slow;
+      }
+    }
+  }
+}
+
+
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $content;
+  padding: 0 $mobile-side-indent;
+  width: 100%;
+}
+
+h2.section-title {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 120%;
+  text-align: center;
+  text-transform: uppercase;
+  color: $accent-dark;
+}
+
+section,
+footer {
+  &.svg-vertical-indent {
+    padding-top: $svg-height;
+    padding-bottom: $svg-height;
+
+    .container {
+      padding-top: $vertical-section-mobile-indent;
+      padding-bottom: $vertical-section-mobile-indent;
+    }
+  }
+
+  svg {
+    height: $svg-height;
+    fill: #fff;
+
+    &.top {
+      margin-top: -$svg-height;
+      margin-bottom: $vertical-section-mobile-indent;
+    }
+
+    &.bottom {
+      margin-top: $vertical-section-mobile-indent;
+      margin-bottom: -$svg-height;
+    }
+  }
+}
+
+.controls {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 36px;
+    height: 36px;
+    margin: 0 40px;
+    background: transparent;
+    border: none;
+    transform: scale(1);
+    transition: transform ease $fast;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .indicator {
+    color: #fff;
+    font-weight: 500;
+
+  }
+}
+
+
+@media screen and (min-width: 991.8px) {
+  html {
+    font-size: 16px;
+  }
+
+  h2.section-title {
+    font-weight: bold;
+    font-size: 3em;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .container {
+    padding: 0 $desktop-side-indent;
+
+  }
+
+  section,
+  footer {
+    &.svg-vertical-indent {
+      padding-top: $svg-desktop-height;
+      padding-bottom: $svg-desktop-height;
+
+      .container {
+        padding-top: $vertical-section-desktop-indent;
+        padding-bottom: $vertical-section-desktop-indent;
+      }
+    }
+
+    svg {
+      height: $svg-desktop-height;
+      fill: #fff;
+
+      &.top {
+        margin-top: -$svg-desktop-height;
+        margin-bottom: $vertical-section-desktop-indent;
+      }
+
+      &.bottom {
+        margin-top: $vertical-section-desktop-indent;
+        margin-bottom: -$svg-desktop-height;
+      }
+    }
+  }
+
+  .controls {
+    display: none;
+  }
+}
+
+
+//Модули
+@import "modules/modules";

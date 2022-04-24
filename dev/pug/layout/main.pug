@@ -1,0 +1,36 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="en-US")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+
+		link(rel="icon", type="image/png", href="./static/images/common/favicon.png")
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="description", content="")
+		meta(name="keywords" content="")
+		
+		link(rel="stylesheet" type='text/css' href="static/css/styles.css?v=1.9")
+		link(rel="preconnect", href="https://fonts.gstatic.com")
+		link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap", rel="stylesheet")
+		
+	body
+		.wrapper
+			include ../modules/header/nav
+			include ../modules/header/header
+			.content
+				block content
+			include ../modules/footer/footer
+			include ../modules/modal/modal
+			include ../modules/modal/policy
+		#preloader.show
+			img.logo.show(src="./static/images/common/logo-beta.svg", alt="")
+
+		script(src="static/js/libs.js?v=1.1")
+		script(src="static/js/main.js?v=1.1")
+		block script
