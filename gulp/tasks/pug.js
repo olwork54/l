@@ -12,6 +12,6 @@ module.exports = function pug2html() {
     .pipe(plumber())
     .pipe(pug())
     .pipe(plumber.stop())
-    .pipe(gulpif(argv.prod, htmlValidator()))
+    // .pipe(gulpif(argv.prod, htmlValidator()))
     .pipe(gulp.dest('dist'))
 };
