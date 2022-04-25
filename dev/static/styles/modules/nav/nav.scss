@@ -1,5 +1,5 @@
 .nav {
-    position: fixed;
+    position: absolute;
     z-index: 500;
     left: 0;
     right: 0;
@@ -9,6 +9,10 @@
     .logo {
         width: 140px;
         height: auto;
+    }
+
+    .enter-zip-code-wrap {
+        display: none;
     }
 
     .right-side {
@@ -58,7 +62,7 @@
             }
         }
 
-        .high-order-button.telegram-btn{
+        .high-order-button.telegram-btn {
             svg {
                 margin-top: -1px;
                 margin-bottom: 1px;
@@ -69,7 +73,6 @@
 
         .menu {
             display: flex;
-
 
             .open-btn {
                 margin-top: 2px;
@@ -160,7 +163,6 @@
             }
 
             &.mobile-menu-open {
-
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -219,13 +221,85 @@
     }
 
     &.scrolled {
+        position: fixed;
         background-color: #021e7d;
         transition: background-color ease $fast;
+
 
         .nav-wrap {
             padding: 12px $mobile-side-indent;
             transition: padding ease $fast;
+            justify-content: center;
         }
 
+        .logo-link {
+            display: none;
+        }
+
+        .enter-zip-code-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .title {
+                display: none;
+                font-size: 24px;
+                color: #fff;
+                padding-right: 24px;
+            }
+
+            input {
+                width: 100%;
+                background: transparent;
+                border: 2px solid rgba($color: #fff, $alpha: 0.64);
+                box-sizing: border-box;
+                border-radius: 8px;
+                padding: 10px 24px;
+                color: #fff;
+                transition: border-color ease $fast;
+
+                &::placeholder {
+                    color: rgba($color: #fff, $alpha: 0.48);
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+
+                &:focus,
+                &:hover {
+                    border-color: #fff;
+                }
+            }
+
+            button,
+            a {
+                white-space: nowrap;
+                margin-left: 16px;
+                text-decoration: none;
+                cursor: pointer;
+                padding: 12px 24px;
+                font-weight: bold;
+                font-size: 16px;
+                text-align: center;
+                color: $accent-dark;
+                background: #FFFFFF;
+                border-radius: 8px;
+                border: none;
+                outline: none;
+                transform: scale(1);
+                transition: transform ease $fast;
+
+                &:hover {
+                    transform: scale(1.04);
+                }
+            }
+
+            .description {
+                text-align: center;
+                font-weight: normal;
+                font-size: 0.72em;
+                line-height: 150%;
+            }
+        }
     }
 }

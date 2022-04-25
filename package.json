@@ -56,8 +56,10 @@
     "yargs": "^15.3.1"
   },
   "dependencies": {
+    "install": "^0.13.0",
     "lazysizes": "^5.3.2",
     "normalize.css": "^8.0.1",
-    "svg4everybody": "^2.1.9"
+    "svg4everybody": "^2.1.9",
+    "swiper": "^8.1.4"
   }
 }

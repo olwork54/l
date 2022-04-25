@@ -6,11 +6,11 @@ mixin icon(name,mod)
 		svg(class="svg-sprite-icon icon-" + name)
 			use(xlink:href="static/images/sprite/symbol/sprite.svg#" + name)
 
-mixin mixinCard(className,iconSrc,title,text)
-	.card(class=className)
-		img.icon.lazyload(src="./static/images/common/preview.png",data-src=iconSrc, alt="")
-		.title= title
-		.description= text
+mixin mixinCard(iconSrc,text)
+	.card
+		img.img.lazyload(src="./static/images/common/preview.png",data-src=iconSrc, alt="")
+		.title= text
+		//- .description= text
 
 mixin ru(content)
 	if lang === 'ru'  

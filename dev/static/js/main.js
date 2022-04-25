@@ -222,22 +222,25 @@
     mobileMenuCloseBtn: document.querySelector('#mobile-menu-close-btn'),
     scrolledClass: "scrolled",
     stickMenuToggle() {
-      if (pageYOffset >= 10) this.navElem.classList.add(this.scrolledClass)
+      if (scrollY >= 600) this.navElem.classList.add(this.scrolledClass)
       else this.navElem.classList.remove(this.scrolledClass)
       window.addEventListener('scroll', e => {
-        if (pageYOffset >= 10) this.navElem.classList.add(this.scrolledClass)
+        if (scrollY >= 600) this.navElem.classList.add(this.scrolledClass)
         else this.navElem.classList.remove(this.scrolledClass)
       })
     },
     mobileMenuToggle() {
-      this.mobileMenuOpenBtn.addEventListener('click', e => {
-        this.menu.classList.add('mobile-menu-open');
-        this.bodyElem.classList.add('overflow');
-      });
-      this.mobileMenuCloseBtn.addEventListener('click', e => {
-        this.menu.classList.remove('mobile-menu-open');
-        this.bodyElem.classList.remove('overflow');
-      })
+      if(scrollY){
+        this.mobileMenuOpenBtn.addEventListener('click', e => {
+          this.menu.classList.add('mobile-menu-open');
+          this.bodyElem.classList.add('overflow');
+        });
+        this.mobileMenuCloseBtn.addEventListener('click', e => {
+          this.menu.classList.remove('mobile-menu-open');
+          this.bodyElem.classList.remove('overflow');
+        })
+      }
+      
       this.navElem.addEventListener('click', e => {
         if ((e.target.tagName === 'A') &&
           this.menu.classList.contains('mobile-menu-open')) {
@@ -468,14 +471,45 @@
     }
   }
 
-  const functionSlider = new Slider({
-    slider: '#main-function .cards',
-    slides: '#main-function .card',
-    btnNext: '#main-function .controls .next',
-    btnPrev: '#main-function .controls .prev',
-    indicator: '#main-function .controls .indicator',
-    changeSliderHeight: true
-  });
+
+// init Swiper:
+const gallerySwiper = new Swiper('.gallery-slider', {
+  // loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+
+  breakpoints: {
+    200: {
+      slidesPerView: 1,
+      spaceBetween: 8
+    }, 
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 16
+    },
+    992: { 
+      slidesPerView: 3,
+      spaceBetween: 16
+    }
+  }
+});
+
+
+
+
+  // const functionSlider = new Slider({
+  //   slider: '#main-function .cards',
+  //   slides: '#main-function .card',
+  //   btnNext: '#main-function .controls .next',
+  //   btnPrev: '#main-function .controls .prev',
+  //   indicator: '#main-function .controls .indicator',
+  //   changeSliderHeight: true
+  // });
 
   // const priceSlider = new Slider({
   //   slider: '#pricing .pricing-slider',
@@ -497,41 +531,43 @@
   //     indicator: '#partners .controls .indicator'
   // });
 
-  const appointmentAccordeon = new Accordeon({
-    acordeonSelector: "#appointment .appointment-list",
-    itemsSelector: '#appointment .appointment-list .list-item',
-    isProgressEnable: false,
-    loopEnable: 'true',
-    time: '4000',
-    pauseTime: '8000'
-  })
+  // const appointmentAccordeon = new Accordeon({
+  //   acordeonSelector: "#appointment .appointment-list",
+  //   itemsSelector: '#appointment .appointment-list .list-item',
+  //   isProgressEnable: false,
+  //   loopEnable: 'true',
+  //   time: '4000',
+  //   pauseTime: '8000'
+  // })
 
-  const solutionAccordeon = new Accordeon({
-    acordeonSelector: "#solutions .solutions-list",
-    itemsSelector: '#solutions .solutions-list .list-item',
-    isProgressEnable: true,
-    isProgressCommon: false,
-    progressSelector: '.progress',
-    progressStyleType: 'height',
-    loopEnable: 'true',
-    time: '10000',
-    pauseTime: '20000',
-    isNeedChangeHeight: true
-  })
+  // const interfaceAccordeon = new Accordeon({
+  //   acordeonSelector: "#differences .differences-slider",
+  //   itemsSelector: '#differences .differences-slider .list-item',
+  //   isProgressEnable: true,
+  //   isProgressCommon: true,
+  //   progressSelector: '#differences .progress',
+  //   progressStyleType: 'width',
+  //   loopEnable: 'true',
+  //   time: '10000',
+  //   pauseTime: '20000',
+  //   isNeedChangeImg: true,
+  //   imgSelector: '#differences .screen-view img'
+  // })
 
-  const interfaceAccordeon = new Accordeon({
-    acordeonSelector: "#interface .inteface-slider",
-    itemsSelector: '#interface .inteface-slider .list-item',
-    isProgressEnable: true,
-    isProgressCommon: true,
-    progressSelector: '#interface .progress',
-    progressStyleType: 'width',
-    loopEnable: 'true',
-    time: '10000',
-    pauseTime: '20000',
-    isNeedChangeImg: true,
-    imgSelector: '#interface .screen-view img'
-  })
+  // const solutionAccordeon = new Accordeon({
+  //   acordeonSelector: "#solutions .solutions-list",
+  //   itemsSelector: '#solutions .solutions-list .list-item',
+  //   isProgressEnable: true,
+  //   isProgressCommon: false,
+  //   progressSelector: '.progress',
+  //   progressStyleType: 'height',
+  //   loopEnable: 'true',
+  //   time: '10000',
+  //   pauseTime: '20000',
+  //   isNeedChangeHeight: true
+  // })
+
+
 
   // const formHeandler = new FormHeandler({
   //   formSelector: "#input-form",
@@ -561,10 +597,18 @@
   //   submitRef: '&submit=-3300453198507295392'
   // });
 
+
+
+
+
+
+
+
   window.addEventListener('load', hidePreloader);
   smoothScroll();
   navHeandler.init();
   // modalFormHeandler.init();
   modalPolicyHeandler.init();
   langChanger.init();
-})()
+})();
+

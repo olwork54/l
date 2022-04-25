@@ -1,4 +1,4 @@
-@media screen and (min-width: 639.8px) {
+@media screen and (min-width: 771.8px) {
     .nav {
         .nav-wrap {
             .high-order-button {
@@ -21,6 +21,13 @@
                 span {
                     display: inline-block;
                 }
+            }
+            
+        }
+        &.scrolled {
+            .title {
+                white-space: nowrap;
+                display: inline-block!important;
             }
         }
     }

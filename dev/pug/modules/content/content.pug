@@ -1,64 +1,112 @@
-section.main-function#main-function
-    svg.top( width="100%", height="100", viewBox="0 0 1536 101", preserveAspectRatio="none")
-        path(d="M1536 101L0 101L8.8297e-06 3.04772e-06L768 100L1536 0.000137329L1536 101Z")
+section#differences.differences
+    .container 
+        h2.section-title Чем наше предложение отличается от других
+        .differences-slider
+            .screen-view
+                img.lazyload.active(src="./static/images/common/preview.png", data-src="./static/images/common/gallery/3.png", alt="") 
+                //- .progress-wrap
+                //-     .progress
+            ul.name-list
+                li.list-item: span Most Affordable Walk In Tubs in Industry
+                li.list-item: span Designed & Assembled in Chicago, IL
+                li.list-item: span Dual Drain Technology
+                li.list-item: span Lifetime Limited Warranty
+                li.list-item: span Choose Your Own Installer
+                li.list-item: span Financing Options Available
+                li.list-item: span Exclusive Therapy Options
+                li.list-item: span Pioneer of the Two Seat Walk In Tub
+
+
+section.improve-health
+    .container 
+        h2.section-title How Walk-In Tubs Can Improve Your Health
+        ul
+            li
+                .icon-wrap
+                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/improve-health/Arthritis.png", alt="")
+                .item-body
+                    span.title Arthritis
+                    .description A walk-in tub can reduce the stiffness, pain, and swelling that comes with arthritis.
+            li
+                .icon-wrap
+                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/improve-health/Quality-Of-Sleep.png", alt="")
+                .item-body
+                    span.title Quality Of Sleep
+                    .description The steam from a walk-in tub can serve as a decongestant and promote deeper, better sleep.
+            li
+                .icon-wrap
+                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/improve-health/Joint-Pain.png", alt="")
+                .item-body
+                    span.title Joint Pain
+                    .description A full-body immersion walk-in tub can relieve pressure from your joints, and promote cartilage healing.
+            li
+                .icon-wrap
+                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/improve-health/Insomnia.png", alt="")
+                .item-body
+                    span.title Insomnia
+                    .description The rest and relaxation of a full-immersion walk-in tub allow the mind and muscles to unwind and help you get better sleep.
+            li
+                .icon-wrap
+                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/improve-health/Diabetes.png", alt="")
+                .item-body
+                    span.title Diabetes
+                    .description Walk-in tubs benefit diabetes patients with improved circulation, decreased blood sugar levels, and a faster metabolism.
+            li
+                .icon-wrap
+                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/improve-health/Therapy.png", alt="")       
+                .item-body
+                    span.title Therapy
+                    .description If you experience stiff joints and muscle aches, a walk-in tub with hydrotherapy can relax you and relieve your pain.
+
+
+section.features
     .container
         h2.section-title
             +ru('Основные функции')
             +en('Main function')
         .card-slider 
             .cards
-                if lang === 'ru'
-                    +mixinCard("prev", "./static/images/common/functions/tracking.png", "Трекинг", "Отслеживайте клики и конверсии, фильтруйте и блокируйте нежелательный трафик, обнаруживайте и предотвращайте мошенничество, а также управляйте биллингом.")
-                    +mixinCard("curr","./static/images/common/functions/control.png", "Управление", "Afflifter создан для управления трафиком, офферами, рекламодателями и вебмастерами для достижения поставленных маркетинговых целей.")
-                    +mixinCard("next", "./static/images/common/functions/optimization.png", "Оптимизация", "Монетизируйте каждый клик с помощью умного перенаправления трафика. Избавьтесь от ручной работы с нашей функцией автоматизации партнерского маркетинга.")
-                if lang === 'en'
-                    +mixinCard("prev", "./static/images/common/functions/tracking.png", "Tracking", "Track clicks and conversions, filter and block unwanted traffic, detect and prevent fraud, and manage billing.")
-                    +mixinCard("curr","./static/images/common/functions/control.png", "Control", "Afflifter is designed to manage traffic, offers, advertisers and media buyers to achieve their marketing goals.")
-                    +mixinCard("next", "./static/images/common/functions/optimization.png", "Optimization", "Monetize every click with smart traffic redirection. Get rid of the manual work with our affiliate marketing automation feature.")
+                +mixinCard("./static/images/common/main-function/1.png", "Hydrotherapy jets")
+                +mixinCard("./static/images/common/main-function/2.png", "Ozone sterilizer")
+                +mixinCard("./static/images/common/main-function/3.png", "Comfort heated seat system")
+                +mixinCard("./static/images/common/main-function/4.png", "Deep tissue massage system")
+                +mixinCard("./static/images/common/main-function/5.png", "HD aromatherapy")
+                +mixinCard("./static/images/common/main-function/6.png", "Quick-draining system")
+                +mixinCard("./static/images/common/main-function/7.png", "2-foot luxury sole soothers")
+                +mixinCard("./static/images/common/main-function/8.png", "Adjustable handheld shower")
+
+
+section.gallery
+    .container 
+        h2.section-title Photo Gallery
+
+        .gallery-slider
+            .swiper-wrapper
+                .swiper-slide 
+                    img(src="./static/images/common/gallery/1.png")
+                .swiper-slide 
+                    img(src="./static/images/common/gallery/2.png")
+                .swiper-slide 
+                    img(src="./static/images/common/gallery/3.png")
+                .swiper-slide 
+                    img(src="./static/images/common/gallery/4.png")
+                .swiper-slide 
+                    img(src="./static/images/common/gallery/5.png")
+                .swiper-slide 
+                    img(src="./static/images/common/gallery/7.png")
+                .swiper-slide 
+                    img(src="./static/images/common/gallery/8.png")
+            .swiper-pagination
+
             .controls
                 .label
-                button.prev 
-                    img(src="./static/images/common/slider-arrow-prev.svg", alt="")
-                span.indicator 1 / 3
-                button.next 
-                    img(src="./static/images/common/slider-arrow-next.svg", alt="")
-    svg.bottom( width="100%", height="100", viewBox="0 0 1536 100", preserveAspectRatio="none")
-        path(d="M0 0H1536L768 100L0 0Z")
+                button.prev.swiper-button-prev
+                button.next.swiper-button-next
+            
+            .swiper-scrollbar
 
-section#interface.interface.svg-vertical-indent
-    .container 
-        h2.section-title 
-            +ru("Простой и удобный интерфейс")
-            +en("Simple and user-friendly interface")
-        .inteface-slider
-            .screen-view
-                img.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/interface/dashboard.png", alt="") 
-                img.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/interface/offers.png", alt="") 
-                img.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/interface/mediabuers.png", alt="") 
-                img.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/interface/statistic.png", alt="") 
-                img.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/interface/counts.png", alt="") 
-                .progress-wrap
-                    .progress
-            ul.name-list
-                li.list-item: span 
-                    +ru("Дашборд")
-                    +en("Dashboard")
-                li.list-item: span 
-                    +ru("Офферы")
-                    +en("Offers")
-                li.list-item: span 
-                    +ru("Медиабаеры")
-                    +en("Media Buyers")
-                li.list-item: span 
-                    +ru("Статистика")
-                    +en("Statistics")
-                li.list-item: span
-                    +ru("Выставление счетов")
-                    +en("Invoicing")
 
-section#appointment.appointment
-    svg.top( width="100%", height="100", viewBox="0 0 1536 101", preserveAspectRatio="none")
-            path(d="M1536 101L0 101L8.8297e-06 3.04772e-06L768 100L1536 0.000137329L1536 101Z")
+//- section#appointment.appointment
     .container 
         h2.section-title 
             +ru("Наша платформа используется для")
@@ -89,10 +137,9 @@ section#appointment.appointment
                 span.text
                     +ru("Создание собственной реферальной программы")
                     +en("Creating your own referral program")
-    svg.bottom(width="100%", height="60", viewBox="0 0 1536 60", preserveAspectRatio="none")
-        path(d="M0 0H1536V30L1152 60L384 1L0 30V0Z")
 
-section#capabilities.capabilities.svg-vertical-indent
+
+//- section#capabilities.capabilities
     .container 
         h2.section-title 
             +ru("Возможности")
@@ -129,66 +176,8 @@ section#capabilities.capabilities.svg-vertical-indent
                     +ru("Кастомизация")
                     +en("Customization")
 
-section#areas-of-use.areas-of-use
-    svg.top(width="100%", height="60", viewBox="0 0 1536 60", preserveAspectRatio="none")
-        path(d="M1536 60.0001L0 59.9999L2.62268e-06 29.9999L384 -3.96759e-05L1152 59L1536 30.0001L1536 60.0001Z")
-    .container 
-        h2.section-title
-            +ru("Сферы использования")
-            +en("Areas of use")
 
-        h3 
-            +ru("Наша система адаптирована и подходит для клиентов таких сфер:")
-            +en("Our system is adapted and suitable for clients in the following areas:")
-        ul
-            li
-                .icon-wrap
-                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/area-of-use/gambling.png", alt="")
-                .item-body
-                    span.title 
-                        +ru("Геймблинг")
-                        +en("Gambling")
-                    .description 
-                        +ru("Развитие собственной афилей программы")
-                        +en("Development of your own program affiliate")
-            li
-                .icon-wrap
-                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/area-of-use/e-commerce.png", alt="")
-                .item-body
-                    span.title 
-                        +ru("Электронная коммерция и розничная онлайн-торговля")
-                        +en("E-commerce and online retail")
-                    .description 
-                        +ru("Увеличение объема лидов привлечением новых партнеров")
-                        +en("Increasing the volume of leads by attracting new partners")
-            li
-                .icon-wrap
-                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/area-of-use/dating.png", alt="")
-                .item-body
-                    span.title 
-                        +ru("Дейтинг")
-                        +en("Dating")
-                    .description 
-                        +ru("Анализ и масштабирование партнерского трафика")
-                        +en("Analyzing and scaling affiliate traffic")
-            li
-                .icon-wrap
-                    img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/area-of-use/team.png", alt="")
-                .item-body
-                    span.title 
-                        +ru("Арбитражные команды")
-                        +en("Arbitration teams")
-                    .description 
-                        +ru("Удобное управление командой")
-                        +en("Convenient team management")
-    svg.bottom(width="100%", height="60", viewBox="0 0 1536 60", preserveAspectRatio="none")
-            path(d="M0 0H1536V30L1152 60L384 1L0 30V0Z")
-
-section.empty-accent
-
-section#solutions.solutions 
-    svg.top(width="100%", height="60", viewBox="0 0 1536 60", preserveAspectRatio="none")
-            path(d="M1536 60.0001L0 59.9999L2.62268e-06 29.9999L384 -3.96759e-05L1152 59L1536 30.0001L1536 60.0001Z")
+//- section#solutions.solutions
     .container 
         h2.section-title
             +ru("Решения")
@@ -238,17 +227,6 @@ section#solutions.solutions
                     span.description 
                         +ru("С помощью API можно легко интегрировать неограниченное количество сторонних технологий, чтобы расширить маркетинговые возможности. Вы также можете экспортировать данные из нашей системы в свой любимый инструмент бизнес-аналитики для дальнейшей работы.")
                         +en("The API makes it easy to integrate an unlimited number of third-party technologies to expand your marketing opportunities. You can also export data from our system to your favorite business intelligence tool for further work.")
-            //- li.list-item
-            //-     .progress-wrap
-            //-         .progress
-            //-     .item-wrap
-            //-         img.preview.lazyload(src="./static/images/common/preview.png", data-src="./static/images/common/solutions/migration.png", alt="")
-            //-         span.title 
-            //-             +ru("Быстрая миграция")
-            //-             +en("Fast migration")
-            //-         span.description 
-            //-             +ru("Благодаря нашему решению подключения и автоматическому извлечению данных, процесс миграции уже существующей базы на наше программное обеспечение Afflifter будет быстрым и легким.")
-            //-             +en("With our connectivity solution and automatic data extraction, the process of migrating your existing database to our Afflifter software will be quick and easy.")
             li.list-item
                 .progress-wrap
                     .progress
@@ -261,230 +239,8 @@ section#solutions.solutions
                         +ru("Вам не придется долго ждать ответа оператора, если возникли вопросы. Наш саппорт моментально ответит и поможет разобраться")
                         +en("You do not have to wait long for the operator's response if you have any questions. Our support will instantly answer and help you figure the things out")
 
-    svg.bottom(width="100%", height="100", viewBox="0 0 1536 100", preserveAspectRatio="none")
-        path(d="M0 0L1536 0V101L768 1L0 101L0 0Z")
-
-//- section#pricing.pricing.svg-vertical-indent
-//-     .container 
-//-         h2.section-title 
-//-             +ru("Стоимость")
-//-             +en("Pricing")
-//-         .pricing-slider 
-
-//-             .price-card.prev
-//-                 .price-head
-//-                     .title  
-//-                         +ru("Professional")
-//-                         +en("Professional")
-//-                     .price-wrap
-//-                         span.currency $
-//-                         span.price 249
-//-                         span.period
-//-                             +ru("/месяц")
-//-                             +en("/month")
-//-                     p.description 
-//-                         +ru("Для Растущих Сетей и Брендов (Рекламодателей)")
-//-                         +en("For Growing Networks and Brands (Advertisers)")
-
-//-                     button.buy-btn.open-modal-form-btn Free 30 days trial
-//-                     .adition  
-//-                         p
-//-                             +ru("15 000 Конверсий")
-//-                             +en("15 000 Conversions")
-//-                         p 
-//-                             +ru("Безлимитные клики")
-//-                             +en("Unlimited Clicks")
-//-                 .benefits   
-//-                     p.title 
-//-                         +ru("Основные Возможности")
-//-                         +en("Key features")
-//-                     ul.benefits-list
-//-                         li.list-item 
-//-                             +ru("Отслеживание основных показателей")
-//-                             +en("Tracking Performance-based events")
-//-                         li.list-item
-//-                             +ru("Статистика и отчеты в режиме реального времени")
-//-                             +en("Real-time statistics and reporting")
-//-                         li.list-item
-//-                             +ru("Создание неограниченного кол-ва офферов")
-//-                             +en("Unlimited Offers")
-//-                         li.list-item
-//-                             +ru("Полный контроль кампаний и партнеров")
-//-                             +en("Full control of Campaigns and Partners")
-//-                         li.list-item
-//-                             +ru("Постбек")
-//-                             +en("Postback Tracking")
-//-                         li.list-item
-//-                             +ru("Защита от фрода")
-//-                             +en("Anti-Fraud")
-//-                         li.list-item
-//-                             +ru("Smartlink")
-//-                             +en("Smartlink")
-//-                         li.list-item
-//-                             +ru("Автоматизация")
-//-                             +en("Automation")
-//-                         li.list-item
-//-                             +ru("API")
-//-                             +en("API")
-//-                         li.list-item
-//-                             +ru("Поддержка через Email")
-//-                             +en("Email Support")
-
-//-             .price-card.curr.main
-//-                 .price-head
-//-                     .title  
-//-                         +ru("Enterprise")
-//-                         +en("Enterprise")
-//-                     .price-wrap
-//-                         span.currency $
-//-                         span.price 479
-//-                         span.period
-//-                             +ru("/месяц")
-//-                             +en("/month")
-//-                     p.description
-//-                         +ru("Для Продвинутых Сетей")
-//-                         +en("For Advanced Networks")
-//-                     button.buy-btn.open-modal-form-btn Free 30 days trial
-//-                     .adition  
-//-                         p
-//-                             +ru("45 000 Конверсий")
-//-                             +en("45 000 Conversions")
-//-                         p
-//-                             +ru("Безлимитные клики")
-//-                             +en("Unlimited Clicks")
-
-//-                 .benefits   
-//-                     p.title 
-//-                         +ru("Основные возможности")
-//-                         +en("Key features")
-//-                     ul.benefits-list
-//-                         li.list-item 
-//-                             +ru("Отслеживание основных показателей")
-//-                             +en("Tracking Performance-based events")
-//-                         li.list-item
-//-                             +ru("Статистика и отчеты в режиме реального времени")
-//-                             +en("Real-time statistics and reporting")
-//-                         li.list-item
-//-                             +ru("Создание неограниченного кол-ва офферов")
-//-                             +en("Unlimited Offers")
-//-                         li.list-item
-//-                             +ru("Полный контроль кампаний и партнеров")
-//-                             +en("Full control of Campaigns and Partners")
-//-                         li.list-item
-//-                             +ru("Постбек")
-//-                             +en("Postback Tracking")
-//-                         li.list-item
-//-                             +ru("Защита от фрода")
-//-                             +en("Anti-Fraud")
-//-                         li.list-item
-//-                             +ru("Smartlink")
-//-                             +en("Smartlink")
-//-                         li.list-item
-//-                             +ru("Автоматизация")
-//-                             +en("Automation")
-//-                         li.list-item
-//-                             +ru("API")
-//-                             +en("API")
-//-                         li.list-item
-//-                             +ru("White Label и кастомизация")
-//-                             +en("White Label and Customization")
-//-                         li.list-item
-//-                             +ru("Кастомный домен")
-//-                             +en("Custom Domain")
-//-                         li.list-item
-//-                             +ru("Миграция")
-//-                             +en("Migration")
-//-                         li.list-item
-//-                             +ru("Персональный менеджер")
-//-                             +en("Personal Account manager")
-//-                         li.list-item
-//-                             +ru("Поддержка через Email и Чат")
-//-                             +en("Email and Chat Support")
-           
-//-             .price-card.next
-//-                 .price-head
-//-                     .title   
-//-                         +ru("Personal")
-//-                         +en("Personal")
-//-                     .price-wrap
-//-                         span.currency $
-//-                         span.custom-price 
-//-                             +ru("Custom price")
-//-                             +en("Custom price")
-//-                     p.description 
-//-                         +ru("Для Ведущих Сетей")
-//-                         +en("For Leading Networks")
-                        
-//-                     button.buy-btn.open-modal-form-btn Free 30 days trial
-//-                     .adition  
-//-                         p
-//-                             +ru("90 000+ Конверсий")
-//-                             +en("90 000+ Conversions")
-//-                         p 
-//-                             +ru("Безлимитные клики")
-//-                             +en("Unlimited Clicks")
-//-                     p.featches
-//-                 .benefits   
-//-                     p.title 
-//-                         +ru("Основные возможности")
-//-                         +en("Key features")
-//-                     ul.benefits-list
-//-                         li.list-item 
-//-                             +ru("Отслеживание основных показателей")
-//-                             +en("Tracking Performance-based events")
-//-                         li.list-item
-//-                             +ru("Статистика и отчеты в режиме реального времени")
-//-                             +en("Real-time statistics and reporting")
-//-                         li.list-item
-//-                             +ru("Создание неограниченного кол-ва офферов")
-//-                             +en("Unlimited Offers")
-//-                         li.list-item
-//-                             +ru("Полный контроль кампаний и партнеров")
-//-                             +en("Full control of Campaigns and Partners")
-//-                         li.list-item
-//-                             +ru("Постбек")
-//-                             +en("Postback Tracking")
-//-                         li.list-item
-//-                             +ru("Защита от фрода")
-//-                             +en("Anti-Fraud")
-//-                         li.list-item
-//-                             +ru("Smartlink")
-//-                             +en("Smartlink")
-//-                         li.list-item
-//-                             +ru("Автоматизация")
-//-                             +en("Automation")
-//-                         li.list-item
-//-                             +ru("API")
-//-                             +en("API")
-//-                         li.list-item
-//-                             +ru("White Label и кастомизация")
-//-                             +en("White Label and Customization")
-//-                         li.list-item
-//-                             +ru("Кастомный домен")
-//-                             +en("Custom Domain")
-//-                         li.list-item
-//-                             +ru("Миграция")
-//-                             +en("Migration")
-//-                         li.list-item
-//-                             +ru("Персональный менеджер")
-//-                             +en("Personal Account manager")
-//-                         li.list-item
-//-                             +ru("Поддержка через Email и Чат")
-//-                             +en("Email and Chat Support")
-//-                         li.list-item
-//-                             +ru("Разработка решений под вашу систему")
-//-                             +en("Custom features on demand")
-//-         .controls
-//-                 .label
-//-                 button.prev 
-//-                     img(src="./static/images/common/slider-arrow-prev.svg", alt="")
-//-                 span.indicator 1 / 3
-//-                 button.next 
-//-                     img(src="./static/images/common/slider-arrow-next.svg", alt="")
 
 //- section#partners.partners
-    svg.top( width="100%", height="100", viewBox="0 0 1536 101", preserveAspectRatio="none")
-        path(d="M1536 101L0 101L8.8297e-06 3.04772e-06L768 100L1536 0.000137329L1536 101Z")
     h2.section-title
         +ru(" С нами работают")
         +en("Work with us")
@@ -500,10 +256,9 @@ section#solutions.solutions
         span.indicator 1 / 3
         button.next 
             img(src="./static/images/common/slider-arrow-next.svg", alt="")
-    svg.bottom( width="100%", height="60", viewBox="0 0 1536 60", preserveAspectRatio="none")
-        path(d="M1536 0H0V30L384 60L1152 1L1536 30V0Z")
 
-section.instruction.svg-vertical-indent.parters-hidden
+
+//- section.instruction
     .container 
         h2.section-title 
             +ru("Как начать")

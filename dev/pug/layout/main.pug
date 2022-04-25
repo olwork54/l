@@ -20,18 +20,15 @@ html(lang="en-US")
 		link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap", rel="stylesheet")
 		
 	body
-		.wrapper
-			include ../modules/nav/nav
-			include ../modules/header/header
-			.content
-				block content
-			include ../modules/footer/footer
-			include ../modules/modal/modal
-			include ../modules/modal/policy
+		include ../modules/nav/nav
+		include ../modules/header/header
+		block content
+		include ../modules/footer/footer
+		include ../modules/modal/modal
+		include ../modules/modal/policy
 		#preloader.show
-			img.logo.show(src="./static/images/common/logo-beta.svg", alt="")
+			img.logo.show(src="./static/images/common/logo-light.svg", alt="")
 
 		script(src="static/js/libs.js?v=1.1")
 		script(src="static/js/main.js?v=1.1")
-		script(src="static/js/test.js?v=1.1")
 		block script

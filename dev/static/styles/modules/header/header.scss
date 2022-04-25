@@ -4,14 +4,13 @@ header {
     flex: 0 0 auto;
     color: #FFFFFF;
     background: $header-background;
-    padding-bottom: $svg-height;
 
     .container {
-        padding: 20px 16px 24px;
-        background: url("../images/common/header/header-mobile-bg-img.png");
-        background-size: contain;
+        padding: 20px 16px 48px;
+        background: url("../images/common/header/header-blur-img.png");
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: 100% center;
+        background-position: center top;
 
         h1 {
             margin-top: 140px;
@@ -30,15 +29,18 @@ header {
             font-weight: 300;
             font-size: 18px;
             line-height: 21px;
-            max-width: 600px;
+            max-width: 400px;
         }
 
-        .send-email-block {
+        .enter-zip-code-wrap {
             max-width: 400px;
             margin: 48px auto 0;
             display: flex;
             flex-direction: column;
-
+            align-items: stretch;
+            .title{
+                font-size: 24px;
+            }
             input {
                 background: transparent;
                 border: 2px solid rgba($color: #fff, $alpha: 0.64);
@@ -61,6 +63,7 @@ header {
             }
 
             .btn-wrap {
+                margin-top: 16px;
                 display: flex;
                 flex-direction: column;
 
@@ -85,33 +88,12 @@ header {
                     }
                 }
 
-                .description {
-                    text-align: center;
-                    font-weight: normal;
-                    font-size: 0.72em;
-                    line-height: 150%;
-                }
             }
-        }
-
-        .lang-switch {
-            margin-top: 48px;
-            font-size: 12px;
-            line-height: 120%;
-            color: rgba(255, 255, 255, 0.48);
-            text-align: center;
-
-            .lang-btn {
-
-                &.active {
-                    font-weight: bold;
-                    color: #fff;
-                }
-
-                &:hover {
-                    cursor: pointer;
-                    color: #fff;
-                }
+            .description {
+                text-align: center;
+                font-weight: normal;
+                font-size: 0.72em;
+                line-height: 150%;
             }
         }
 

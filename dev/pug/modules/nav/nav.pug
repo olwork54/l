@@ -1,50 +1,8 @@
 .nav 
     .nav-wrap
-        a(href="./index.html") 
-            img.logo(src="./static/images/common/logo-beta.svg", alt="Logo")
-        .right-side
-            a(href="https://t.me/affsupport").high-order-button.telegram-btn
-                svg(xmlns="http://www.w3.org/2000/svg", width="16",height="16", viewBox="0 0 50 50", preserveAspectRatio="xMidYMid slice")
-                    path(d="M46.137 6.552c-.75-.636-1.928-.727-3.146-.238h-.002c-1.281.514-36.261 15.518-37.685 16.131-.259.09-2.521.934-2.288 2.814.208 1.695 2.026 2.397 2.248 2.478l8.893 3.045c.59 1.964 2.765 9.21 3.246 10.758.3.965.789 2.233 1.646 2.494.752.29 1.5.025 1.984-.355l5.437-5.043 8.777 6.845.209.125c.596.264 1.167.396 1.712.396.421 0 .825-.079 1.211-.237 1.315-.54 1.841-1.793 1.896-1.935l6.556-34.077c.4-1.82-.156-2.746-.694-3.201zM22 32l-3 8-3-10 23-17-17 19z")
-                span
-                    +en("Contact us")
-                    +ru("Связаться с нами")
-            a(href="https://app.afflifter.com/login").high-order-button
-                svg(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24")
-                    path(d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z")
-
-                span
-                    +en("Login")
-                    +ru("Войти")
-            #menu.menu
-                button#mobile-menu-open-btn.open-btn 
-                    svg(width="24", height="17", viewBox="0 0 24 17", preserveAspectRatio="none")
-                        path(d="M0 1.5C0 0.671573 0.671573 0 1.5 0H22.5C23.3284 0 24 0.671573 24 1.5C24 2.32843 23.3284 3 22.5 3H1.5C0.671573 3 0 2.32843 0 1.5Z", fill="white")
-                        path(d="M0 8.5C0 7.67157 0.671573 7 1.5 7H22.5C23.3284 7 24 7.67157 24 8.5C24 9.32843 23.3284 10 22.5 10H1.5C0.671573 10 0 9.32843 0 8.5Z", fill="white")
-                        path(d="M6 15.5C6 14.6716 6.67157 14 7.5 14H22.5C23.3284 14 24 14.6716 24 15.5C24 16.3284 23.3284 17 22.5 17H7.5C6.67157 17 6 16.3284 6 15.5Z", fill="white")
-                .menu-list-wrap 
-                    button#mobile-menu-close-btn.close-btn
-                        svg(width="18", height="19", viewBox="0 0 18 19", preserveAspectRatio="none")
-                            path(d="M0.51473 1.01474C1.10052 0.428952 2.05026 0.428952 2.63605 1.01474L17.4853 15.864C18.0711 16.4498 18.0711 17.3995 17.4853 17.9853C16.8995 18.5711 15.9498 18.5711 15.364 17.9853L0.51473 3.13606C-0.0710562 2.55027 -0.0710562 1.60053 0.51473 1.01474Z", fill="white")
-                            path(d="M17.4851 1.01472C18.0709 1.6005 18.0709 2.55025 17.4851 3.13604L2.63586 17.9853C2.05007 18.5711 1.10032 18.5711 0.514535 17.9853C-0.0712513 17.3995 -0.0712513 16.4497 0.514535 15.864L15.3638 1.01472C15.9496 0.428932 16.8993 0.428932 17.4851 1.01472Z", fill="white")
-                    .menu-list 
-                        if !navLink
-                            //- button.trial-btn.open-modal-form-btn Free trial
-                            
-                            a(href="https://app.afflifter.com/register").trial-btn.open-modal-form-btn 
-                                +en("Free trial")
-                                +ru("Попробовать бесплатно")
-
-                        .menu-item-wrap
-                            .list-item: a(href= navLink ? navLink + "#interface" : "#interface")
-                                +ru("О нас")
-                                +en("About")
-                            .list-item: a(href= navLink ? navLink + "#appointment" :  "#appointment")
-                                +ru("Для кого")
-                                +en("For whom")  
-                            .list-item: a(href= navLink ? navLink + "#capabilities" : "#capabilities")
-                                +ru("Возможности")
-                                +en("Features") 
-                            //- .list-item: a(href= navLink ? navLink + "#pricing" : "#pricing")
-                            //-     +ru("Стоимость")
-                            //-     +en("Pricing") 
+        a.logo-link(href="./index.html") 
+            img.logo(src="./static/images/common/logo-light.svg", alt="Logo")
+        form.enter-zip-code-wrap(action='#')
+            span.title What is your Zip Code?
+            input(type="text" placeholder="Enter Zip code?")
+            button(type="button") Get estimate

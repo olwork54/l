@@ -1,11 +1,11 @@
 @media screen and (min-width: 991.8px) {
     header {
         .container {
-            padding: 24px $desktop-side-indent;
-            background: url("../images/common/header/header-bg-img.png");
-            background-size: 480px;
+            padding: 24px $desktop-side-indent 48px;
+            background: url("../images/common/header/header-bg-img.png"), url("../images/common/header/header-blur-img.png");
+            background-size: 280px, auto 100%;
             background-repeat: no-repeat;
-            background-position: 90% center;
+            background-position: right 0 center;
 
             h1 {
                 margin-top: 164px;
@@ -13,17 +13,10 @@
             }
 
             .description {
-                margin-top: 24px;
+                margin-top: 10px;
                 font-size: 30px;
                 line-height: 120%;
                 max-width: 720px;
-            }
-
-
-            .lang-switch {
-                text-align: right;
-                margin-top: 56px;
-                font-size: 18px;
             }
 
             @keyframes blinker {
@@ -53,11 +46,23 @@
                     opacity: 1.0;
                 }
             }
-
-
+            .enter-zip-code-wrap {
+                max-width: 600px;
+                margin: 48px auto 0;
+                text-align: center;
+                .btn-wrap {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    button, a{
+                        margin-top: 0;
+                        margin-left: 16px;
+                    }
+                }
+            }
 
             .desktop-scroll-arrow-wrap {
-                margin-top: 10px;
+                margin-top: 48px;
                 display: block;
                 text-align: center;
 
@@ -65,7 +70,6 @@
                     display: inline-block;
                     width: 24px;
                     height: auto;
-
                     animation-name: blinker;
                     animation-iteration-count: infinite;
                     animation-timing-function: ease;
@@ -76,6 +80,16 @@
                     -webkit-animation-duration: 3s;
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 1191.8px){
+    header {
+        .container {
+            background-size: 420px, auto 100%;
+            background-repeat: no-repeat;
+            background-position: 90% center, center;
         }
     }
 }
