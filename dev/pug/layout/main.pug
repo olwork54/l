@@ -16,18 +16,22 @@ html(lang="en-US")
 		meta(name="keywords" content="")
 		
 		link(rel="stylesheet" type='text/css' href="static/css/styles.css?v=1.9")
-		link(rel="preconnect", href="https://fonts.gstatic.com")
-		link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap", rel="stylesheet")
+		
+		link(rel='preconnect' href='https://fonts.googleapis.com')
+		link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+		link(href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap' rel='stylesheet')
 		
 	body
 		include ../modules/nav/nav
 		include ../modules/header/header
 		block content
-		include ../modules/footer/footer
-		include ../modules/modal/modal
-		include ../modules/modal/policy
+		//- include ../modules/footer/footer
+		//- include ../modules/modal/modal
+		//- include ../modules/modal/policy
 		#preloader.show
 			img.logo.show(src="./static/images/common/logo-light.svg", alt="")
+		img.preload-img(src="./static/images/common/preloader.gif", alt="", style="display:none")
+		
 
 		script(src="static/js/libs.js?v=1.1")
 		script(src="static/js/main.js?v=1.1")

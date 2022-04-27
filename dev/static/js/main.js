@@ -18,76 +18,6 @@
     throttle("resize", "optimizedResize");
   })();
 
-  // class FormHeandler {
-  //   constructor(options) {
-  //     this.formElem = document.querySelector(options.formSelector);
-  //     this.baseURL = options.baseURL;
-  //     this.submitRef = options.submitRef;
-  //     this.qustionID = options.qustionID;
-  //     this.getParams = options.getParams;
-  //     this.getParamString = null;
-  //     this.init();
-  //   }
-  //   getParamsHeandle() {
-  //     if (!this.getParams) return;
-  //     this.getParamString = (new URL(document.location)).searchParams;
-  //     for (const key in this.getParams) {
-  //       if (Object.hasOwnProperty.call(this.getParams, key) && this.getParamString) {
-  //         this.getParamString  = `&${encodeURIComponent(this.getParams[key])}=${encodeURIComponent(this.getParamString)}`;
-  //         this.formElem.querySelector('input[name="' + key + '"]').value = this.getParamString;
-  //       }
-  //     }
-  //   }
-  //   submitForm(form, url) {
-  //     const formInputs = form.querySelectorAll('input, select, button');
-  //     this.disableFormInputs(formInputs);
-  //     fetch(url, {
-  //       method: 'POST',
-  //       mode: 'no-cors',
-  //       body: new FormData(form)
-  //     }).then(response => {
-  //       if (response.status === 0) {
-  //         form.reset();
-  //         this.enableFormInputs(formInputs);
-  //         document.location.href = './success.html';
-  //       }
-
-  //     })
-  //   }
-  //   enableFormInputs(formInputs) {
-  //     formInputs.forEach(element => {
-  //       element.removeAttribute('disabled');
-  //     });
-  //   }
-  //   disableFormInputs(formInputs) {
-  //     formInputs.forEach(element => {
-  //       element.setAttribute('disabled', true);
-  //     });
-  //   }
-  //   init() {
-  //     this.getParamsHeandle();
-  //     this.formElem.addEventListener('submit', e => {
-  //       e.preventDefault();
-  //       let resultUrl = "";
-  //       resultUrl += this.baseURL;
-  //       this.qustionID.forEach(element => {
-  //         for (let key in element) {
-  //           if (Object.hasOwnProperty.call(element, key)) {
-  //             const input = e.currentTarget.querySelector('*[name="' + key + '"]');
-  //             resultUrl += `${encodeURIComponent(element[key])}=${encodeURIComponent(input.value)}&`;
-  //             // input.setAttribute('name', element[key]);
-  //           }
-  //         }
-  //       });
-  //       resultUrl = resultUrl.substring(0, resultUrl.length - 1);
-  //       if (this.getParamString) resultUrl += this.getParamString;
-  //       resultUrl += this.submitRef;
-  //       this.formElem.setAttribute('action', resultUrl);
-  //       this.submitForm(e.currentTarget, resultUrl);
-  //       // e.currentTarget.submit();
-  //     })
-  //   }
-  // }
 
   function hidePreloader() {
     let animTime = 100,
@@ -102,124 +32,28 @@
     }, animTime)
   }
 
-  const langChanger = {
-    controlls: document.querySelectorAll('.lang-changer .lang'),
-    currentLang: localStorage.getItem('userLang') ? localStorage.getItem('userLang') : false,
-    changeLang(elem) {
-      let serchParam = (new URL(document.location)).searchParams;
-      if (serchParam) serchParam = `?${serchParam}`; 
-      if (elem.dataset.lang === this.currentLang) return;
-      this.currentLang = elem.dataset.lang;
-      localStorage.setItem('userLang', this.currentLang);
-      this.controlls.forEach(langElem => {
-        if (langElem.dataset.lang === this.currentLang) langElem.classList.add('active');
-        else langElem.classList.remove('active');
-      });
-      if (this.currentLang === 'ru-RU') {
-        window.location.assign(`ru.html${serchParam}`);
-      } else if (this.currentLang === 'en-US') {
-        window.location.assign(`index.html${serchParam}`);
-      } else {
-        window.location.assign(`index.html${serchParam}`);
-      }
-    },
-    init() {
-      if (this.currentLang !== 'ru-RU') this.currentLang = 'en-US';
-      this.controlls.forEach(langElem => {
-        if (langElem.dataset.lang === this.currentLang) langElem.classList.add('active');
-        else langElem.classList.remove('active');
-        langElem.addEventListener('click', (e) => {
-          e.preventDefault();
-          this.changeLang(e.target);
-        })
-      });
-    }
-  };
 
-  function smoothScroll() {
-    const anchors = document.querySelectorAll('a[href*="#"]')
-    for (let anchor of anchors) {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault()
-        const blockID = anchor.getAttribute('href').substr(1)
-        document.getElementById(blockID).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        })
+  function lazyVideoPoster() {
+    let videos = null;
+    try {
+       videos = document.querySelectorAll('video');
+    } catch (error) {
+      return;
+    }
+    if (videos.length){
+      videos.forEach( v => {
+        v.setAttribute('poster', v.dataset.poster);
       })
     }
   }
 
-  // const modalFormHeandler = {
-  //   bodyElem: document.querySelector('BODY'),
-  //   modalForm: document.querySelector('#modal-form'),
-  //   openModalFormBtns: document.querySelectorAll('.open-modal-form-btn'),
-  //   closeBtn: document.querySelector('#modal-form-close-btn'),
-  //   sendEmailForm: document.querySelector('#send-email-block'),
-  //   hideModalWindow() {
-  //     this.bodyElem.classList.remove('overflow');
-  //     this.modalForm.classList.remove('show');
-  //   },
-  //   showModalWindow() {
-  //     this.bodyElem.classList.add('overflow');
-  //     this.modalForm.classList.add('show');
-  //   },
-  //   init() {
-  //     this.openModalFormBtns.forEach(openBtn => {
-  //       openBtn.addEventListener('click', e => {
-  //         this.showModalWindow();
-  //       })
-  //     });
-  //     this.closeBtn.addEventListener('click', e => {
-  //       this.hideModalWindow();
-  //     });
-  //     this.modalForm.addEventListener('click', e => {
-  //       if (e.target.classList.contains('modal')) this.hideModalWindow();
-  //     });
-  //     this.sendEmailForm.addEventListener('submit', e => {
-  //       e.preventDefault();
-  //       let emailElem = this.sendEmailForm.querySelector('input.email');
-  //       if (emailElem.value) {
-  //         let modalFormEmailElem = this.modalForm.querySelector('.email');
-  //         modalFormEmailElem.value = emailElem.value;
-  //         this.sendEmailForm.reset();
-  //         this.showModalWindow();
-  //         modalFormEmailElem.focus();
-  //       }
-  //     })
-  //   }
-  // }
-
-  const modalPolicyHeandler = {
-    bodyElem: document.querySelector('BODY'),
-    policyModal: document.querySelector('#privacy-policy'),
-    openBtn: document.querySelector('#policy-open'),
-    closeBtn: document.querySelector('#policy-close-btn'),
-
-    hideModalWindow() {
-      this.bodyElem.classList.remove('overflow');
-      this.policyModal.classList.remove('show');
-    },
-    showModalWindow() {
-      this.bodyElem.classList.add('overflow');
-      this.policyModal.classList.add('show');
-    },
-    init() {
-      this.openBtn.addEventListener('click', e => {
-        this.showModalWindow();
-      })
-      this.closeBtn.addEventListener('click', e => {
-        this.hideModalWindow();
-      });
-    }
-  }
 
   const navHeandler = {
-    bodyElem: document.querySelector('BODY'),
+    // bodyElem: document.querySelector('BODY'),
     navElem: document.querySelector('.nav'),
-    menu: document.querySelector('#menu'),
-    mobileMenuOpenBtn: document.querySelector('#mobile-menu-open-btn'),
-    mobileMenuCloseBtn: document.querySelector('#mobile-menu-close-btn'),
+    // menu: document.querySelector('#menu'),
+    // mobileMenuOpenBtn: document.querySelector('#mobile-menu-open-btn'),
+    // mobileMenuCloseBtn: document.querySelector('#mobile-menu-close-btn'),
     scrolledClass: "scrolled",
     stickMenuToggle() {
       if (scrollY >= 600) this.navElem.classList.add(this.scrolledClass)
@@ -251,9 +85,25 @@
     },
     init() {
       this.stickMenuToggle();
-      this.mobileMenuToggle();
+      // this.mobileMenuToggle();
     }
   }
+
+
+  function smoothScroll() {
+    const anchors = document.querySelectorAll('a[href*="#"]')
+    for (let anchor of anchors) {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault()
+        const blockID = anchor.getAttribute('href').substr(1)
+        document.getElementById(blockID).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      })
+    }
+  }
+
 
   class Slider {
     constructor(options) {
@@ -266,7 +116,6 @@
       this.isСhangeSliderHeight = options.changeSliderHeight ? true : false;
       this.init();
     }
-
     changeSliderHeaight(slide) {
       if (this.isСhangeSliderHeight) {
         if (window.getComputedStyle(this.btnNext)['display'] !== 'block') this.slider.style.height = '';
@@ -276,7 +125,6 @@
         });
       }
     }
-
     changeSlide(currNum) {
       let prevNum, nextNum;
       if (+currNum === 0) prevNum = this.slides.length - 1;
@@ -291,10 +139,8 @@
       this.slides[currNum].classList.add('curr');
       this.slides[nextNum].classList.add('next');
       this.changeSliderHeaight(this.slides[currNum]);
-
       this.indicator.innerText = `${+currNum + 1} / ${this.slides.length}`
     }
-
     prevSlide() {
       let slideNum;
       if (this.currSlide === 0) slideNum = this.slides.length - 1;
@@ -307,12 +153,10 @@
       else slideNum = this.currSlide + 1;
       this.changeSlide(slideNum);
     }
-
     init() {
       this.changeSlide(this.currSlide);
       this.btnNext.addEventListener('click', e => this.nextSlide());
       this.btnPrev.addEventListener('click', e => this.prevSlide());
-
       this.slides.forEach(slide => {
         slide.addEventListener('click', e => {
           if (window.getComputedStyle(this.btnNext)['display'] !== 'block') return;
@@ -322,6 +166,7 @@
       })
     }
   }
+
 
   class Accordeon {
     constructor(options) {
@@ -472,34 +317,180 @@
   }
 
 
-// init Swiper:
-const gallerySwiper = new Swiper('.gallery-slider', {
-  // loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-
-  breakpoints: {
-    200: {
-      slidesPerView: 1,
-      spaceBetween: 8
-    }, 
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 16
-    },
-    992: { 
-      slidesPerView: 3,
-      spaceBetween: 16
-    }
-  }
-});
 
 
+  // class FormHeandler {
+  //   constructor(options) {
+  //     this.formElem = document.querySelector(options.formSelector);
+  //     this.baseURL = options.baseURL;
+  //     this.submitRef = options.submitRef;
+  //     this.qustionID = options.qustionID;
+  //     this.getParams = options.getParams;
+  //     this.getParamString = null;
+  //     this.init();
+  //   }
+  //   getParamsHeandle() {
+  //     if (!this.getParams) return;
+  //     this.getParamString = (new URL(document.location)).searchParams;
+  //     for (const key in this.getParams) {
+  //       if (Object.hasOwnProperty.call(this.getParams, key) && this.getParamString) {
+  //         this.getParamString  = `&${encodeURIComponent(this.getParams[key])}=${encodeURIComponent(this.getParamString)}`;
+  //         this.formElem.querySelector('input[name="' + key + '"]').value = this.getParamString;
+  //       }
+  //     }
+  //   }
+  //   submitForm(form, url) {
+  //     const formInputs = form.querySelectorAll('input, select, button');
+  //     this.disableFormInputs(formInputs);
+  //     fetch(url, {
+  //       method: 'POST',
+  //       mode: 'no-cors',
+  //       body: new FormData(form)
+  //     }).then(response => {
+  //       if (response.status === 0) {
+  //         form.reset();
+  //         this.enableFormInputs(formInputs);
+  //         document.location.href = './success.html';
+  //       }
+  //     })
+  //   }
+  //   enableFormInputs(formInputs) {
+  //     formInputs.forEach(element => {
+  //       element.removeAttribute('disabled');
+  //     });
+  //   }
+  //   disableFormInputs(formInputs) {
+  //     formInputs.forEach(element => {
+  //       element.setAttribute('disabled', true);
+  //     });
+  //   }
+  //   init() {
+  //     this.getParamsHeandle();
+  //     this.formElem.addEventListener('submit', e => {
+  //       e.preventDefault();
+  //       let resultUrl = "";
+  //       resultUrl += this.baseURL;
+  //       this.qustionID.forEach(element => {
+  //         for (let key in element) {
+  //           if (Object.hasOwnProperty.call(element, key)) {
+  //             const input = e.currentTarget.querySelector('*[name="' + key + '"]');
+  //             resultUrl += `${encodeURIComponent(element[key])}=${encodeURIComponent(input.value)}&`;
+  //             // input.setAttribute('name', element[key]);
+  //           }
+  //         }
+  //       });
+  //       resultUrl = resultUrl.substring(0, resultUrl.length - 1);
+  //       if (this.getParamString) resultUrl += this.getParamString;
+  //       resultUrl += this.submitRef;
+  //       this.formElem.setAttribute('action', resultUrl);
+  //       this.submitForm(e.currentTarget, resultUrl);
+  //       // e.currentTarget.submit();
+  //     })
+  //   }
+  // }
+
+  
+
+  // const langChanger = {
+  //   controlls: document.querySelectorAll('.lang-changer .lang'),
+  //   currentLang: localStorage.getItem('userLang') ? localStorage.getItem('userLang') : false,
+  //   changeLang(elem) {
+  //     let serchParam = (new URL(document.location)).searchParams;
+  //     if (serchParam) serchParam = `?${serchParam}`; 
+  //     if (elem.dataset.lang === this.currentLang) return;
+  //     this.currentLang = elem.dataset.lang;
+  //     localStorage.setItem('userLang', this.currentLang);
+  //     this.controlls.forEach(langElem => {
+  //       if (langElem.dataset.lang === this.currentLang) langElem.classList.add('active');
+  //       else langElem.classList.remove('active');
+  //     });
+  //     if (this.currentLang === 'ru-RU') {
+  //       window.location.assign(`ru.html${serchParam}`);
+  //     } else if (this.currentLang === 'en-US') {
+  //       window.location.assign(`index.html${serchParam}`);
+  //     } else {
+  //       window.location.assign(`index.html${serchParam}`);
+  //     }
+  //   },
+  //   init() {
+  //     if (this.currentLang !== 'ru-RU') this.currentLang = 'en-US';
+  //     this.controlls.forEach(langElem => {
+  //       if (langElem.dataset.lang === this.currentLang) langElem.classList.add('active');
+  //       else langElem.classList.remove('active');
+  //       langElem.addEventListener('click', (e) => {
+  //         e.preventDefault();
+  //         this.changeLang(e.target);
+  //       })
+  //     });
+  //   }
+  // };
+
+  
+  // const modalFormHeandler = {
+  //   bodyElem: document.querySelector('BODY'),
+  //   modalForm: document.querySelector('#modal-form'),
+  //   openModalFormBtns: document.querySelectorAll('.open-modal-form-btn'),
+  //   closeBtn: document.querySelector('#modal-form-close-btn'),
+  //   sendEmailForm: document.querySelector('#send-email-block'),
+  //   hideModalWindow() {
+  //     this.bodyElem.classList.remove('overflow');
+  //     this.modalForm.classList.remove('show');
+  //   },
+  //   showModalWindow() {
+  //     this.bodyElem.classList.add('overflow');
+  //     this.modalForm.classList.add('show');
+  //   },
+  //   init() {
+  //     this.openModalFormBtns.forEach(openBtn => {
+  //       openBtn.addEventListener('click', e => {
+  //         this.showModalWindow();
+  //       })
+  //     });
+  //     this.closeBtn.addEventListener('click', e => {
+  //       this.hideModalWindow();
+  //     });
+  //     this.modalForm.addEventListener('click', e => {
+  //       if (e.target.classList.contains('modal')) this.hideModalWindow();
+  //     });
+  //     this.sendEmailForm.addEventListener('submit', e => {
+  //       e.preventDefault();
+  //       let emailElem = this.sendEmailForm.querySelector('input.email');
+  //       if (emailElem.value) {
+  //         let modalFormEmailElem = this.modalForm.querySelector('.email');
+  //         modalFormEmailElem.value = emailElem.value;
+  //         this.sendEmailForm.reset();
+  //         this.showModalWindow();
+  //         modalFormEmailElem.focus();
+  //       }
+  //     })
+  //   }
+  // }
+
+
+  // const modalPolicyHeandler = {
+  //   bodyElem: document.querySelector('BODY'),
+  //   policyModal: document.querySelector('#privacy-policy'),
+  //   openBtn: document.querySelector('#policy-open'),
+  //   closeBtn: document.querySelector('#policy-close-btn'),
+  //   hideModalWindow() {
+  //     this.bodyElem.classList.remove('overflow');
+  //     this.policyModal.classList.remove('show');
+  //   },
+  //   showModalWindow() {
+  //     this.bodyElem.classList.add('overflow');
+  //     this.policyModal.classList.add('show');
+  //   },
+  //   init() {
+  //     this.openBtn.addEventListener('click', e => {
+  //       this.showModalWindow();
+  //     })
+  //     this.closeBtn.addEventListener('click', e => {
+  //       this.hideModalWindow();
+  //     });
+  //   }
+  // }
+
+ 
 
 
   // const functionSlider = new Slider({
@@ -511,6 +502,7 @@ const gallerySwiper = new Swiper('.gallery-slider', {
   //   changeSliderHeight: true
   // });
 
+
   // const priceSlider = new Slider({
   //   slider: '#pricing .pricing-slider',
   //   slides: '#pricing .price-card',
@@ -518,10 +510,9 @@ const gallerySwiper = new Swiper('.gallery-slider', {
   //   btnPrev: '#pricing .controls .prev',
   //   indicator: '#pricing .controls .indicator',
   //   changeSliderHeight: true,
-
   //   currSlide: 1
-
   // });
+
 
   // const partnersSlider = new Slider({
   //     slider: '#pricing .logo-list',
@@ -531,6 +522,7 @@ const gallerySwiper = new Swiper('.gallery-slider', {
   //     indicator: '#partners .controls .indicator'
   // });
 
+
   // const appointmentAccordeon = new Accordeon({
   //   acordeonSelector: "#appointment .appointment-list",
   //   itemsSelector: '#appointment .appointment-list .list-item',
@@ -539,6 +531,7 @@ const gallerySwiper = new Swiper('.gallery-slider', {
   //   time: '4000',
   //   pauseTime: '8000'
   // })
+
 
   // const interfaceAccordeon = new Accordeon({
   //   acordeonSelector: "#differences .differences-slider",
@@ -566,7 +559,6 @@ const gallerySwiper = new Swiper('.gallery-slider', {
   //   pauseTime: '20000',
   //   isNeedChangeHeight: true
   // })
-
 
 
   // const formHeandler = new FormHeandler({
@@ -598,17 +590,63 @@ const gallerySwiper = new Swiper('.gallery-slider', {
   // });
 
 
+const gallerySwiper = new Swiper('.gallery-slider', {
+  // loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+
+  breakpoints: {
+    200: {
+      slidesPerView: 1,
+      spaceBetween: 8
+    }, 
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 16
+    },
+    992: { 
+      slidesPerView: 3,
+      spaceBetween: 16
+    }
+  }
+});
 
 
+const reviewSwiper = new Swiper('.review-slider', {
+  // loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  breakpoints: {
+    200: {
+      slidesPerView: 1,
+      spaceBetween: 8
+    }, 
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 16
+    },
+    992: { 
+      slidesPerView: 3,
+      spaceBetween: 16
+    }
+  }
+});
 
 
-
-
+  lazyVideoPoster();
   window.addEventListener('load', hidePreloader);
   smoothScroll();
   navHeandler.init();
   // modalFormHeandler.init();
   modalPolicyHeandler.init();
-  langChanger.init();
+  // langChanger.init();
 })();
 

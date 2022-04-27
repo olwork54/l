@@ -6,7 +6,7 @@
 //@include sprites($spritesheet-sprites);
 
 html {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     height: 100%;
 
@@ -138,25 +138,39 @@ button {
     }
 }
 
-section>.container {
-    padding-top: 96px;
-    padding-bottom: 96px;
+.lazyload {
+	opacity: 0;
 }
 
-.container {
+.lazyloading {
+	opacity: 1;
+	transition: opacity 0.3s;
+	background: #f7f7f7 url(../images/common/preloader.gif) no-repeat center;
+    background-size: 150px 100px;
+}
+
+.container{
     margin: 0 auto;
     max-width: $content;
-    padding: 0 $mobile-side-indent;
     width: 100%;
+}
+section>.container {
+    
+    padding: 64px $mobile-side-indent;
+    
 }
 
 h2.section-title {
-    font-weight: bold;
+    font-weight: 800;
     font-size: 2em;
     line-height: 120%;
     text-align: center;
     text-transform: uppercase;
     color: $accent-dark;
+}
+h3.section-subtitle{
+    margin: 16px 0;
+    text-align: center;
 }
 
 .controls {
@@ -185,16 +199,20 @@ h2.section-title {
     html {
         font-size: 16px;
     }
-
     h2.section-title {
-        font-weight: bold;
+        font-weight: 800;
         font-size: 3em;
-        max-width: 800px;
+        max-width: 960px;
         margin: 0 auto;
+    }
+    h3.section-subtitle{
+        font-size: 1.4em;
+        max-width: 960px;
+        margin: 16px auto;
     }
 
     .container {
-        padding: 0 $desktop-side-indent;
+        padding: 96px $desktop-side-indent;
     }
 }
 

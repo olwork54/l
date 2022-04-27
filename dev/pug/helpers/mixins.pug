@@ -8,7 +8,7 @@ mixin icon(name,mod)
 
 mixin mixinCard(iconSrc,text)
 	.card
-		img.img.lazyload(src="./static/images/common/preview.png",data-src=iconSrc, alt="")
+		img.img.lazyload(data-src=iconSrc, alt="")
 		.title= text
 		//- .description= text
 
