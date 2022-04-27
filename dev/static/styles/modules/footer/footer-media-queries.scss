@@ -1,55 +1,37 @@
 @media screen and (min-width: 991.8px) {
     footer {
-
         .container {
-            .content-wrap {
+            .no-wrap{
                 display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                width: 80%;
+            }
 
-                .logo {
-                    margin: 0 24px 0 0;
-                    flex: 1;
-
-                    img {
-                        height: 48px;
-                        width: auto;
+            .policies {
+                .list {
+                    flex-direction: row;
+                    .item{
+                        margin-bottom: 0;
                     }
                 }
+            }
 
-                .contact-list,
-                .category-list {
-                    margin: 0 24px;
-                    flex: 1;
-
+            .hero {
+                img {
+                    bottom: -48px;
                 }
+            }
 
-                .social-media-list {
-                    position: absolute;
-                    left: 0;
-                    bottom: 36px;
+            .social-list {
+                margin: 0;
+                text-align: left;
+                .list {
+                    justify-content: flex-start;
                 }
-
-                .contact-list .title,
-                .category-list .title,
-                .social-media-list .title {
-                    text-align-last: left;
-                }
-
-                .contact-list {
-                    .list-item {
-                        text-align: left;
-                    }
-
-                }
-
-                .category-list {
-                    .list-item {
-                        text-align: left;
-                    }
-
-                    &.continuation {
-                        margin-top: 27px;
-                    }
-                }
+            }
+            .copyright {
+                text-align-last: left;
             }
         }
     }

@@ -158,6 +158,7 @@ section.differences {
 
 section.features {
     padding-top: 0;
+
     .container {
         overflow: hidden;
 
@@ -178,7 +179,7 @@ section.features {
                 object-fit: contain;
                 width: 100%;
                 height: auto;
-                
+
                 // max-height: 640px;
 
             }
@@ -258,15 +259,20 @@ section.features {
             }
         }
     }
-    &.dark-bg{
+
+    &.dark-bg {
         background: $accent-dark;
-        h2,h3,.video-description{
+
+        h2,
+        h3,
+        .video-description {
             color: #fff;
         }
+
         .video-wrap {
             border: none;
         }
-        
+
 
     }
 }
@@ -307,17 +313,18 @@ section.gallery {
     }
 }
 
-.trust-us{
+.trust-us {
     .trust-list {
         display: flex;
         justify-content: center;
         flex-direction: column;
         margin-top: 16px;
 
-        .trust-item{
+        .trust-item {
             margin: 24px 0 0;
         }
-        .num{
+
+        .num {
             display: inline-block;
             font-size: 52px;
             font-weight: 700;
@@ -325,21 +332,25 @@ section.gallery {
             text-align: center;
             margin: 0;
         }
-        .discription{
+
+        .discription {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .icon{
+
+        .icon {
             width: 22px;
             height: 22px;
-            img{
+
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
             }
         }
-        .text{
+
+        .text {
             text-transform: uppercase;
             font-size: 16px;
             font-weight: 600;
@@ -460,13 +471,17 @@ section.instruction {
 
 section.reviews {
     overflow: hidden;
+    background: $accent-dark;
+
     .container {
-        .review-slider{
-            .swiper-wrapper{
-                align-items: stretch;
-            }
-            .slide{
-                align-self: stretch;
+        h2.section-title {
+            color: #fff;
+        }
+
+        .review-slider {
+            .slide {
+                border-radius: 8px;
+                align-self: center;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -476,53 +491,149 @@ section.reviews {
                 background: #fff;
                 box-shadow: $shadow;
                 transition: box-shadow ease $fast;
-                &:hover{
-                box-shadow: $hover-shadow;
-                bottom: 0;
 
+                &:hover {
+                    box-shadow: $hover-shadow;
+                    bottom: 0;
                 }
             }
-            .user{
+
+            .user {
                 width: 96px;
                 height: 96px;
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
                 }
             }
-            .name{
+
+            .name {
                 font-size: 20px;
-               font-weight: 600;
+                font-weight: 600;
                 margin-top: 16px;
             }
+
             .star-rating {
                 display: flex;
                 justify-content: center;
                 margin-top: 16px;
-                img{
+
+                img {
                     width: 16px;
                     height: 16px;
                     margin: 0 2px;
                 }
             }
-            .text{
+
+            .text {
                 display: inline-block;
                 margin-top: 18px;
                 text-align: center;
             }
-            .link{
+
+            .link {
                 color: $accent-dark;
                 text-decoration: none;
                 margin-top: 24px;
                 border-bottom: 1px solid transparent;
                 transition: border-color ease $fast;
-         
-                &:hover{
-                border-bottom: 1px solid $accent-dark;
+
+                &:hover {
+                    border-bottom: 1px solid $accent-dark;
 
                 }
+            }
+        }
+    }
+}
 
+section.main-action {
+    .enter-zip-code-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+
+        .title {
+            display: inline-block;
+            font-size: 1.4em;
+            text-align: center;
+            color: $accent-dark;
+            font-weight: 700;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn-wrap {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+
+            button,
+            a {
+                margin-top: 24px;
+            }
+        }
+
+        input {
+            border: 2px solid rgba($color: $accent-dark, $alpha: 0.64);
+            color: #323232;
+
+            &::placeholder {
+                color: rgba($color: #888, $alpha: 0.48);
+            }
+
+            &:focus,
+            &:hover {
+                border: 2px solid rgba($color: $accent-dark, $alpha: 1);
+            }
+
+
+        }
+
+        .description {
+            color: #323232;
+            margin-top: 12px;
+        }
+    }
+
+    &.dark {
+        background: $accent-dark;
+        background-image: $bg-img-dark;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        .enter-zip-code-wrap {
+            .title {
+                color: #fff;
+            }
+
+            input {
+               
+                border: 2px solid rgba($color: #fff, $alpha: 0.72);
+                color: #fff;
+
+
+                &::placeholder {
+                    color: rgba($color: #fff, $alpha: 0.64);
+                }
+
+                &:focus,
+                &:hover {
+                    border-color: #fff;
+                    &::placeholder {
+                        color: rgba($color: #fff, $alpha: 0.80);
+                    }
+                }
+            }
+
+            .description {
+                color: #fff;
             }
         }
     }

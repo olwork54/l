@@ -147,10 +147,11 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        color: rgba(255,255,255,.48);
-                        background: #ffffff22;
+                        color: $accent-dark;
+                        background: $accent-light;
                         order: 2;
                         font-size: 1.4em;
+                        font-weight: 700;
                         position: static;
                         width: 36px;
                         height: 36px;
@@ -202,4 +203,30 @@
             }
         }
     }
+
+    section.main-action {
+        .enter-zip-code-wrap {
+            margin: 0 auto 48px;
+            text-align: center;
+        
+            .title {
+                font-size: 2em;
+                max-width: 800px;
+            }
+            .btn-wrap {
+                margin-top: 48px;
+                max-width: 600;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+    
+                button,
+                a {
+                    margin-top: 0;
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
 }
+

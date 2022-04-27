@@ -7,7 +7,7 @@
     transition: background-color ease $fast;
 
     .logo {
-        width: 140px;
+        width: 250px;
         height: auto;
     }
 
@@ -222,7 +222,7 @@
 
     &.scrolled {
         position: fixed;
-        background-color: #021e7d;
+        background-color: $accent-action;
         transition: background-color ease $fast;
 
 
@@ -242,63 +242,24 @@
             align-items: center;
 
             .title {
+                color: #fff;
                 display: none;
                 font-size: 24px;
-                color: #fff;
                 padding-right: 24px;
             }
 
             input {
                 width: 100%;
-                background: transparent;
-                border: 2px solid rgba($color: #fff, $alpha: 0.64);
-                box-sizing: border-box;
-                border-radius: 8px;
-                padding: 10px 24px;
-                color: #fff;
-                transition: border-color ease $fast;
+                padding: 6px 16px;
 
-                &::placeholder {
-                    color: rgba($color: #fff, $alpha: 0.48);
-                    font-weight: 500;
-                    font-size: 16px;
-                    line-height: 22px;
-                }
-
-                &:focus,
-                &:hover {
-                    border-color: #fff;
-                }
             }
 
             button,
             a {
+                background: $accent-light;
                 white-space: nowrap;
                 margin-left: 16px;
-                text-decoration: none;
-                cursor: pointer;
-                padding: 12px 24px;
-                font-weight: bold;
-                font-size: 16px;
-                text-align: center;
-                color: $accent-dark;
-                background: #FFFFFF;
-                border-radius: 8px;
-                border: none;
-                outline: none;
-                transform: scale(1);
-                transition: transform ease $fast;
-
-                &:hover {
-                    transform: scale(1.04);
-                }
-            }
-
-            .description {
-                text-align: center;
-                font-weight: normal;
-                font-size: 0.72em;
-                line-height: 150%;
+                padding: 6px 16px;
             }
         }
     }

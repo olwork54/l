@@ -139,36 +139,38 @@ button {
 }
 
 .lazyload {
-	opacity: 0;
+    opacity: 0;
 }
 
 .lazyloading {
-	opacity: 1;
-	transition: opacity 0.3s;
-	background: #f7f7f7 url(../images/common/preloader.gif) no-repeat center;
+    opacity: 1;
+    transition: opacity 0.3s;
+    background: #f7f7f7 url(../images/common/preloader.gif) no-repeat center;
     background-size: 150px 100px;
 }
 
-.container{
+.container {
     margin: 0 auto;
     max-width: $content;
     width: 100%;
 }
+
+footer>.container,
 section>.container {
-    
     padding: 64px $mobile-side-indent;
-    
+
 }
 
 h2.section-title {
     font-weight: 800;
-    font-size: 2em;
+    font-size: 1.6em;
     line-height: 120%;
     text-align: center;
     text-transform: uppercase;
     color: $accent-dark;
 }
-h3.section-subtitle{
+
+h3.section-subtitle {
     margin: 16px 0;
     text-align: center;
 }
@@ -180,17 +182,76 @@ h3.section-subtitle{
         border: none;
         border-radius: 1000px;
         transform: scale(1);
-        background: rgba(255,255,255,0.5);
+        background: rgba(255, 255, 255, 0.5);
         transition: transform ease $fast;
+
         &:hover {
             transform: scale(1.1);
         }
     }
-    .prev{
+
+    .prev {
         padding-right: 10px;
     }
-    .next{
+
+    .next {
         padding-left: 10px;
+    }
+}
+
+.enter-zip-code-wrap {
+    input {
+        background: transparent;
+        border: 2px solid rgba($color: #fff, $alpha: 0.72);
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 10px 24px;
+        color: #fff;
+        font-weight: 700;
+        transition: border ease $fast;
+
+        &::placeholder {
+            color: rgba($color: #fff, $alpha: 0.64);
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        &:focus,
+        &:hover {
+            border-color: #fff;
+            &::placeholder {
+                color: rgba($color: #fff, $alpha: 0.80);
+            }
+        }
+    }
+
+    button,
+    a {
+        text-decoration: none;
+        cursor: pointer;
+        padding: 10px 24px;
+        font-weight: 600;
+        font-size: 18px;
+        text-align: center;
+        color: #000;
+        background: $accent-light;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        transform: scale(1);
+        transition: transform ease $fast;
+
+        &:hover {
+            transform: scale(1.04);
+        }
+    }
+    
+    .description {
+        text-align: center;
+        font-weight: 400;
+        font-size: 0.72em;
+        line-height: 150%;
     }
 }
 
@@ -199,13 +260,15 @@ h3.section-subtitle{
     html {
         font-size: 16px;
     }
+
     h2.section-title {
         font-weight: 800;
         font-size: 3em;
         max-width: 960px;
         margin: 0 auto;
     }
-    h3.section-subtitle{
+
+    h3.section-subtitle {
         font-size: 1.4em;
         max-width: 960px;
         margin: 16px auto;
