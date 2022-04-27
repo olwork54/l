@@ -331,8 +331,13 @@ section.gallery {
             align-items: center;
         }
         .icon{
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
         }
         .text{
             text-transform: uppercase;
@@ -457,7 +462,11 @@ section.reviews {
     overflow: hidden;
     .container {
         .review-slider{
+            .swiper-wrapper{
+                align-items: stretch;
+            }
             .slide{
+                align-self: stretch;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -469,6 +478,7 @@ section.reviews {
                 transition: box-shadow ease $fast;
                 &:hover{
                 box-shadow: $hover-shadow;
+                bottom: 0;
 
                 }
             }

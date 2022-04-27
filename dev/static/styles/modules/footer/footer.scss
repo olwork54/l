@@ -1,16 +1,8 @@
 footer {
     position: relative;
-    z-index: 8;
-    padding: 30px 0;
+    z-index: 2;
     background: linear-gradient(180deg, #1F43C0 0.94%, #01205E 98.98%);
-
-    svg.top {
-        margin-bottom: 0;
-        position: absolute;
-        bottom: 100%;
-
-    }
-
+    
     a {
         color: $footer-link;
         text-decoration: none;
@@ -23,66 +15,14 @@ footer {
     }
 
     .container {
+        padding-top: 24px;
+        padding-bottom: 16px;
         .content-wrap {
             position: relative;
             border-bottom: 2px solid #243981;
-            padding-bottom: 36px;
+            padding-bottom: 16px;
 
-            .contact-list,
-            .category-list,
-            .social-media-list {
-                margin-top: 48px;
-            }
-
-
-            .telegram-btn {
-                display: inline-block;
-                text-decoration: none;
-                cursor: pointer;
-                fill: #fff;
-                font-size: 14px;
-                font-weight: 500;
-                border-radius: 8px;
-                padding: 8px 32px 8px 24px;
-                border: 2px solid #FFFFFF;
-                color: #fff;
-                background-color: transparent;
-                transition: all ease $fast;
-
-
-
-                svg {
-                    transition: fill ease $fast;
-                    width: 20px;
-                    height: 20px;
-                    margin-top: -2px;
-                    margin-right: 8px;
-                    
-                }
-
-                &:hover {
-                    background: #fff;
-                    color: $accent-dark;
-                    
-                    svg {
-                        fill: $accent-dark;
-                    }
-                }
-            }
-
-            .contact-list .title,
-            .category-list .title,
-            .social-media-list .title {
-                margin-bottom: 8px;
-                font-weight: 500;
-                font-size: 18px;
-                line-height: 150%;
-                text-align: center;
-                text-transform: uppercase;
-                color: #FFFFFF;
-            }
-
-            .contact-list {
+            .list {
                 .list-item {
                     margin-top: 16px;
                     font-size: 14px;
@@ -91,25 +31,11 @@ footer {
                 }
             }
 
-            .category-list {
-                &.continuation {
-                    margin-top: 0px;
-                }
-
-                .list-item {
-                    text-align: center;
-                    margin-top: 16px;
-                    font-weight: 500;
-                    font-size: 14px;
-                    line-height: 150%;
-                }
-            }
 
 
             .logo {
                 margin: 24px auto 0;
-                width: 140px;
-                height: 30px;
+                width: 120px;
 
                 img {
                     width: 100%;
@@ -120,6 +46,36 @@ footer {
 
         }
 
+        .row{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .col{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list{
+            display: flex;
+        }
+        .hero{
+            position: relative;
+            width: 96px;
+            height: 10px;
+            img{
+                position: absolute;
+                bottom: -96px;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+        }
+        .social-list{
+            display: flex;
+        }
         .copyright {
             margin-top: 24px;
             font-size: 14px;

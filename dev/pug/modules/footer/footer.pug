@@ -1,44 +1,27 @@
 footer
     .container 
         .content-wrap
-            .logo
-                a(href="./index.html") 
-                    img(src="./static/images/common/logo-light.svg", alt="")
+            .row 
+                .col
+                    .logo
+                        a(href="./index.html") 
+                            img(src="./static/images/common/logo-light.svg", alt="")
+                    .list
+                        .list-item Terms of Use
+                        .list-item Privacy Policy
+                        .list-item Cookie Policy
+                        .list-item Do Not Sell My Personal Information
+                        .list-item Contact us 
 
-            .contact-list 
-                    .title 
-                        +ru("Контакты")
-                        +en("Контакты")
-                    .list-item: a(href="#") 096 38 44 257
-                    .list-item: a(href="#") 067 62 68 911
-                    .list-item: a(href="#") 1420 Locust Street, Suite 210, Philadelphia, PA 19102
-                
-            .category-list 
-                .title
-                    +ru("Категории")
-                    +en("Categories")
-                .list-item: a(href= navLink ? navLink + "#interface" : "#interface") 
-                    +ru("О нас")
-                    +en("About")
-                .list-item: a(href= navLink ? navLink + "#appointment" : "#appointment") 
-                    +ru("Для кого")
-                    +en("For whom") 
-            .category-list.continuation
-                .list-item: a(href= navLink ? navLink + "#capabilities" : "#capabilities") 
-                    +ru("Возможности")
-                    +en("Features")
-                .list-item
-                    a(href="https://t.me/affsupport").telegram-btn
-                        svg(xmlns="http://www.w3.org/2000/svg", width="16",height="16", viewBox="0 0 50 50",preserveAspectRatio="xMidYMid slice")
-                            path(d="M46.137 6.552c-.75-.636-1.928-.727-3.146-.238h-.002c-1.281.514-36.261 15.518-37.685 16.131-.259.09-2.521.934-2.288 2.814.208 1.695 2.026 2.397 2.248 2.478l8.893 3.045c.59 1.964 2.765 9.21 3.246 10.758.3.965.789 2.233 1.646 2.494.752.29 1.5.025 1.984-.355l5.437-5.043 8.777 6.845.209.125c.596.264 1.167.396 1.712.396.421 0 .825-.079 1.211-.237 1.315-.54 1.841-1.793 1.896-1.935l6.556-34.077c.4-1.82-.156-2.746-.694-3.201zM22 32l-3 8-3-10 23-17-17 19z")
-                        +en("Contact us")
-                        +ru("Связаться с нами")
-                
+                .col.hero 
+                    img(src="./static/images/common/header/header-bg-img.png", alt="")
 
+                .col.social-list 
+                    .title Follow us 
+                    .list
+                        a.social-item(href="#"): img(src="./static/images/common/reviews/star.svg", alt="") 
+                        a.social-item(href="#"): img(src="./static/images/common/reviews/star.svg", alt="") 
+                        a.social-item(href="#"): img(src="./static/images/common/reviews/star.svg", alt="") 
+                        a.social-item(href="#"): img(src="./static/images/common/reviews/star.svg", alt="") 
 
-        .copyright  
-            +ru("© 2015 - 2021 AFFLIFTER. Все права защищены. |")
-            +en("© 2015 - 2021 AFFLIFTER. All rights reserved. |")
-            a(href="#").privacy-policy#policy-open 
-                +ru("Политика конфиденциальности")
-                +en("Privacy policy")
+        .copyright © 2022 Homemate.Expert. All rights reserved.
