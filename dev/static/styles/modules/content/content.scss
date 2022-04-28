@@ -566,6 +566,10 @@ section.main-action {
             margin: 0 auto;
         }
 
+        .error-msg{
+            color: #f00;
+        }
+
         .btn-wrap {
             width: 100%;
             max-width: 500px;
@@ -611,6 +615,10 @@ section.main-action {
         .enter-zip-code-wrap {
             .title {
                 color: #fff;
+            }
+
+            .error-msg{
+                color: $accent-light;
             }
 
             input {

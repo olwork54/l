@@ -12,8 +12,10 @@ header
         form.enter-zip-code-wrap(action='#')
             span.title We will select a bathroom at the best price and help you find an installer without extra charges!
             .btn-wrap
-                input(type="text" placeholder="Enter Zip code?")
-                button(type="button") Get estimate
+                .input-wrap
+                    input.zip-modal-open(type="text" placeholder="Enter Zip code?")
+                    .error-msg
+                button(type="submit") Get estimate
             span.description Free, no-obligation estimates.
 
         .desktop-scroll-arrow-wrap

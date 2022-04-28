@@ -3,75 +3,22 @@ section.quiz.modal
         .modal-header 
             .logo 
                 img(src="./static/images/common/logo-dark.svg", alt="")
-            .close-modal-btn
+            .close-modal-btn X 
+        
+        .hero-wrapper
+            .hero-msg msg
+            img.hero.lazyload(data-src="./static/images/common/header/header-bg-img.png", alt="")
+            
+
 
         .modal-body 
             .progress-wrapper
                 #form-progress.progress
-            form#step-form.step-wrapper(action="#")
+            form#step-form.step-wrapper(action="./success.html" method="POST")
+                input.zip-input(type="hidden" name="zip code")
 
 
-
-                //- .step.next(data-add-info="text 2") 
-                //-     .step-title Why are you interested in a walk-in tub?
-                //-     .answer-wrapper
-                //-         .fancy-input 
-                //-             .input-wrapper
-                //-                 input(name="name" id="input-name" type="text" required="required")
-                //-                 label(for="input-name") Full name
-                //-             .error-msg
-
-                //-         .fancy-input 
-                //-             .input-wrapper
-                //-                 input(name="email" id="input-email" type="text" required="required")
-                //-                 label(for="input-email") Email
-                //-             .error-msg
-                        
-                //-     p.data-info 
-
-                //-     .aplay-btn-wrapper 
-                //-         button.aplay-btn next
-                //-         button.no-btn.hide no
-                //-         button.yes-btn.hide yes
-
-
-
-                //- .step.next(data-add-info="text 2") 
-                //-     .step-title Why are you interested in a walk-in tub?
-                //-     .answer-wrapper
-                //-         .fancy-input 
-                //-             .input-wrapper
-                //-                 input(name="tel" id="input-tel" type="text" required="required")
-                //-                 label(for="input-tel") Phone
-                //-             .error-msg
-                        
-                //-     p.data-info 
-
-                //-     .aplay-btn-wrapper 
-                //-         button.aplay-btn next
-                //-         button.no-btn.hide no
-                //-         button.yes-btn.hide yes
-
-
-                .step.next(data-add-info="text 2") 
-                    .step-title Why are you interested in a walk-in tub?
-                    .answer-wrapper
-                        .fancy-input 
-                            .input-wrapper
-                                span.phone-confirm
-                            .error-msg
-
-                    a.change-phone Change phone
-                    p.data-info 
-
-                    .aplay-btn-wrapper 
-                        button.aplay-btn Confirm
-                        button.no-btn.hide no
-                        button.yes-btn.hide yes
-
-
-
-                .step.next(data-add-info="Let`s get started on your walk-in tub estimate!" data-type="radio") 
+                .step.next(data-info="Let`s get started on your walk-in tub estimate!" data-type="radio") 
                     .step-title Why are you interested in a walk-in tub?
                     .answer-wrapper
                         .radio-custom
@@ -102,7 +49,7 @@ section.quiz.modal
                             
 
 
-                .step.next(data-add-info="text 2" data-type="radio") 
+                .step.next(data-type="radio") 
                     .step-title Why are you interested in a walk-in tub?
                     .answer-wrapper
                         .radio-custom
@@ -129,7 +76,89 @@ section.quiz.modal
                         button.no-btn.hide no
                         button.yes-btn.hide yes
 
-                
 
+                .step.next(data-info="text ") 
+                    .step-title Why are you interested in a walk-in tub?
+                    .answer-wrapper
+                        .fancy-input 
+                            .input-wrapper
+                                input(name="name" id="input-name" type="text" required="required")
+                                label(for="input-name") Full name
+                            .error-msg
+
+                        .fancy-input 
+                            .input-wrapper
+                                input(name="email" id="input-email" type="text" required="required")
+                                label(for="input-email") Email
+                            .error-msg
+                        
+                    p.data-info 
+
+                    .aplay-btn-wrapper 
+                        button.aplay-btn next
+                        button.no-btn.hide no
+                        button.yes-btn.hide yes
+
+
+                .step.next(data-info="text 2") 
+                    .step-title Why are you interested in a walk-in tub?
+                    .answer-wrapper
+                        .fancy-input 
+                            .input-wrapper
+                                input(name="tel" id="input-tel" type="text" required="required")
+                                label(for="input-tel") Phone
+                            .error-msg
+                        
+                    p.data-info 
+
+                    .aplay-btn-wrapper 
+                        button.aplay-btn next
+                        button.no-btn.hide no
+                        button.yes-btn.hide yes
+
+
+                .step.next(data-info="text 2") 
+                    .step-title Why are you interested in a walk-in tub?
+                    .answer-wrapper
+                        .fancy-input 
+                            .input-wrapper
+                                span.phone-confirm
+                            .error-msg
+
+                    a.change-phone Change phone
+                    p.data-info 
+
+                    .aplay-btn-wrapper 
+                        button.submit(type="sumit") Confirm
+                        button.aplay-btn.hide Confirm
+                        button.no-btn.hide no
+                        button.yes-btn.hide yes
+
+
+
+
+section.are-you-shure
+    .container 
+        .modal-header 
+            .logo 
+                img(src="./static/images/common/logo-dark.svg", alt="")
+        
+        .hero-wrapper
+            .hero-msg Let`s get started on your walk-in tub estimate!
+            img.hero.lazyload(data-src="./static/images/common/header/header-bg-img.png", alt="")
+
+        .modal-body
+            .step-wrapper
+
+                .step.active
+                    .step-title are you shure?
+                    .answer-wrapper
+                    .aplay-btn-wrapper 
+                        button.no-btn.exit no
+                        button.yes-btn.continue yes
+
+                    p.data-info 
+
+                    
 
 

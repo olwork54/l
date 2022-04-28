@@ -208,7 +208,13 @@ h3.section-subtitle {
 }
 
 .enter-zip-code-wrap {
+    .error-msg{
+        margin-top: 8px;
+        font-size: 0.9em;
+        color: $accent-light;
+    }
     input {
+        width: 100%;
         background: transparent;
         border: 2px solid rgba($color: #fff, $alpha: 0.72);
         box-sizing: border-box;

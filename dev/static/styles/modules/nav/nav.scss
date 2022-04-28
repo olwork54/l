@@ -239,7 +239,7 @@
         .enter-zip-code-wrap {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
 
             .title {
                 color: #fff;
@@ -250,7 +250,7 @@
 
             input {
                 width: 100%;
-                padding: 6px 16px;
+                padding: 7px 16px;
 
             }
 

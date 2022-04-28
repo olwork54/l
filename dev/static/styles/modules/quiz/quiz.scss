@@ -1,4 +1,6 @@
-section.quiz.modal {
+section.quiz.modal,
+section.are-you-shure {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -10,6 +12,53 @@ section.quiz.modal {
     overflow-x: hidden;
     width: 100vw;
     background: #fff;
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .hero-wrapper{
+        position: absolute;
+        top: 64px;
+        right: -60px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+      
+        img{
+            height: 480px;
+            width: 190px;
+            object-fit: contain;
+        }
+        .hero-msg{
+            text-align: center;
+            background: #999;
+            border-radius: 100%;
+            margin-top: 48px;
+            height: 124px;
+            padding: 36px 24px;
+            margin-right: -24px;
+            margin-left: 24px;
+            width: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:empty{
+                display: none;
+            }
+        }
+        
+    }
+
+    &.show{
+        display: block;
+    }
+
+    .container{
+        position: relative;
+        padding-top: 24px;
+    }
 
     .logo {
         max-width: 165px;
@@ -45,7 +94,7 @@ section.quiz.modal {
         width: 100%;
         position: relative;
         max-width: 800px;
-        margin: 120px auto 0;
+        margin: 156px auto 0;
         padding: 24px 16px;
         background: #fff;
     }
@@ -71,6 +120,7 @@ section.quiz.modal {
         }
 
         &.active {
+            z-index: 1000;
             position: relative;
             top: initial;
             opacity: 1;
@@ -93,7 +143,7 @@ section.quiz.modal {
         display: flex;
         align-items: center;
         flex-direction: column;
-        max-width: 263px;
+        max-width: 260px;
         margin: 0 auto 8px;
     }
 
@@ -218,6 +268,7 @@ section.quiz.modal {
         }
     }
 
+    .submit,
     .aplay-btn,
     .no-btn,
     .yes-btn {
@@ -250,6 +301,10 @@ section.quiz.modal {
         border: 1px solid #bdbdbd;
     }
     .change-phone{
+        display: inline-block;
+        margin-bottom: 24px;
+        text-align: center;
+        width: 100%;
         color: $accent-dark;
         cursor: pointer;
         transition: color ease $fast;
@@ -266,4 +321,8 @@ section.quiz.modal {
         line-height: 1.5em;
         color: $accent-light;
     }
+}
+
+.section.are-you-shure{
+    z-index: 1100;
 }
