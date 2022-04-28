@@ -36,12 +36,12 @@
   function lazyVideoPoster() {
     let videos = null;
     try {
-       videos = document.querySelectorAll('video');
+      videos = document.querySelectorAll('video');
     } catch (error) {
       return;
     }
-    if (videos.length){
-      videos.forEach( v => {
+    if (videos.length) {
+      videos.forEach(v => {
         v.setAttribute('poster', v.dataset.poster);
       })
     }
@@ -64,7 +64,7 @@
       })
     },
     mobileMenuToggle() {
-      if(scrollY){
+      if (scrollY) {
         this.mobileMenuOpenBtn.addEventListener('click', e => {
           this.menu.classList.add('mobile-menu-open');
           this.bodyElem.classList.add('overflow');
@@ -74,7 +74,7 @@
           this.bodyElem.classList.remove('overflow');
         })
       }
-      
+
       this.navElem.addEventListener('click', e => {
         if ((e.target.tagName === 'A') &&
           this.menu.classList.contains('mobile-menu-open')) {
@@ -200,11 +200,11 @@
     }
     isVisible(target) {
       let targetPosition = {
-          top: window.pageYOffset + target.getBoundingClientRect().top,
-          left: window.pageXOffset + target.getBoundingClientRect().left,
-          right: window.pageXOffset + target.getBoundingClientRect().right,
-          bottom: window.pageYOffset + target.getBoundingClientRect().bottom
-        },
+        top: window.pageYOffset + target.getBoundingClientRect().top,
+        left: window.pageXOffset + target.getBoundingClientRect().left,
+        right: window.pageXOffset + target.getBoundingClientRect().right,
+        bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+      },
         windowPosition = {
           top: window.pageYOffset,
           left: window.pageXOffset,
@@ -389,7 +389,7 @@
   //   }
   // }
 
-  
+
 
   // const langChanger = {
   //   controlls: document.querySelectorAll('.lang-changer .lang'),
@@ -425,7 +425,7 @@
   //   }
   // };
 
-  
+
   // const modalFormHeandler = {
   //   bodyElem: document.querySelector('BODY'),
   //   modalForm: document.querySelector('#modal-form'),
@@ -490,7 +490,7 @@
   //   }
   // }
 
- 
+
 
 
   // const functionSlider = new Slider({
@@ -590,55 +590,55 @@
   // });
 
 
-const gallerySwiper = new Swiper('.gallery-slider', {
-  // loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-
-  breakpoints: {
-    200: {
-      slidesPerView: 1,
-      spaceBetween: 8
-    }, 
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 16
+  const gallerySwiper = new Swiper('.gallery-slider', {
+    // loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
-    992: { 
-      slidesPerView: 3,
-      spaceBetween: 16
-    }
-  }
-});
-
-
-const reviewSwiper = new Swiper('.review-slider', {
-  // loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  breakpoints: {
-    200: {
-      slidesPerView: 1,
-      spaceBetween: 8
-    }, 
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 16
+    scrollbar: {
+      el: '.swiper-scrollbar',
     },
-    992: { 
-      slidesPerView: 3,
-      spaceBetween: 16
+
+    breakpoints: {
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 8
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 16
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 16
+      }
     }
-  }
-});
+  });
+
+
+  const reviewSwiper = new Swiper('.review-slider', {
+    // loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    breakpoints: {
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 8
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 16
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 16
+      }
+    }
+  });
 
 
   lazyVideoPoster();
@@ -646,7 +646,278 @@ const reviewSwiper = new Swiper('.review-slider', {
   smoothScroll();
   navHeandler.init();
   // modalFormHeandler.init();
-  modalPolicyHeandler.init();
+  // modalPolicyHeandler.init();
   // langChanger.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  class FormWizard {
+    constructor(options) {
+      // form .step  .aplay-btn . #progress
+      // type: radio
+      this.form = document.querySelector(options.form);
+      this.steps = document.querySelectorAll(options.steps);
+      this.progress = document.querySelector(options.progress);
+      this.applyBtnSelector = options.nextBtn;
+
+      this.reg = {
+        email: /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/,
+        name: /^([a-zA-Z]{1,}\s{0,}[a-zA-Z]{1,}'?-?[a-zA-Z]{1,}\s?([a-zA-Z]{1,})?)/,
+      };
+      this.step = 0;
+      this.stepsAmount = this.steps.length;
+      this.init();
+    }
+
+    toCloseWindow() { console.log('toCloseWindow'); }
+    toStep(n) { 
+      this.step = n;
+      this.steps.forEach((stepEl, i) => {
+      if (i < this.step) {
+        stepEl.classList.remove('active', 'next');
+        stepEl.classList.add('prev');
+      } else if (i === this.step) {
+        stepEl.classList.remove('prev', 'next');
+        stepEl.classList.add('active');
+      } else {
+        stepEl.classList.remove('prev', 'active');
+        stepEl.classList.add('next');
+      }
+    })
+    this.progressUpdate();}
+
+    progressUpdate() {
+      this.progress.style.width = (100 / this.stepsAmount) * (this.step + 1) + '%';
+    }
+
+    nextStep() {
+      this.step++;
+      this.steps.forEach((stepEl, i) => {
+        if (i < this.step) {
+          stepEl.classList.remove('active', 'next');
+          stepEl.classList.add('prev');
+        } else if (i === this.step) {
+          stepEl.classList.remove('prev', 'next');
+          stepEl.classList.add('active');
+        } else {
+          stepEl.classList.remove('prev', 'active');
+          stepEl.classList.add('next');
+        }
+      })
+      this.progressUpdate();
+    }
+
+    validate(stepEl) {
+      const inputs = stepEl.querySelectorAll('input');
+      let error = false;
+
+      inputs.forEach(inputEl => {
+        if (inputEl.name === 'tel') {
+          error = this.validateTel(inputEl);
+        } if (inputEl.name === 'name') {
+          error = this.validateName(inputEl);
+        } else if (inputEl.name === 'email') {
+          error = this.validateEmail(inputEl);
+        } 
+      });
+
+      return !error;
+    }
+
+    validateEmail(inputEl) {
+      const fancyInput = inputEl.closest('.fancy-input');
+      const erorEl = fancyInput.querySelector('.error-msg');
+      let error = false;
+      let errText = '';
+
+      if (!inputEl.value) {
+        error = true;
+        errText = 'Enter your email please';
+      } else if (!this.reg.email.test(inputEl.value)) {
+        error = true;
+        errText = 'Enter valid email please'
+      }
+
+      if (error) fancyInput.classList.add('error');
+      else fancyInput.classList.remove('error');
+
+      erorEl.innerText = errText;
+
+      inputEl.addEventListener('input', e =>{
+        fancyInput.classList.remove('error');
+        erorEl.innerText = '';
+      })
+
+      return error;
+    }
+
+    validateName(inputEl) {
+      const fancyInput = inputEl.closest('.fancy-input');
+      const erorEl = fancyInput.querySelector('.error-msg');
+      let error = false;
+      let errText = '';
+
+      if (!inputEl.value) {
+        error = true;
+        errText = 'Enter your full name please';
+      } else if (!inputEl.value.trim().includes(' ')) {
+        error = true;
+        errText = 'Enter valid full name: first name and last name'
+      } else if (!this.reg.name.test(inputEl.value)) {
+        error = true;
+        errText = 'Enter valid full name, only latter and space'
+      } 
+
+      if (error) fancyInput.classList.add('error');
+      else fancyInput.classList.remove('error');
+
+      erorEl.innerText = errText;
+
+      inputEl.addEventListener('input', e =>{
+        fancyInput.classList.remove('error');
+        erorEl.innerText = '';
+      })
+
+      return error;
+    }
+
+    validateTel(inputEl){
+      const fancyInput = inputEl.closest('.fancy-input');
+      const erorEl = fancyInput.querySelector('.error-msg');
+      let error = false;
+      let errText = '';
+
+      if (!inputEl.value) {
+        error = true;
+        errText = 'Enter your phone number please';
+      } else if (inputEl.value.length < 14) {
+        error = true;
+        errText = 'Enter valid phone number please'
+      }
+
+      if (error) fancyInput.classList.add('error');
+      else fancyInput.classList.remove('error');
+
+      erorEl.innerText = errText;
+
+      inputEl.addEventListener('input', e =>{
+        fancyInput.classList.remove('error');
+        erorEl.innerText = '';
+      })
+
+      return error;
+    }
+
+    updateConfirmPhone(tel){
+      if (this.form.querySelector('.phone-confirm')) {
+        const phoneConfirmEl = this.form.querySelector('.phone-confirm');
+        phoneConfirmEl.innerText = tel;
+      }
+    }
+
+    init() {
+      const changePhoneEl = this.form.querySelector('.change-phone')
+      changePhoneEl.addEventListener('click', e => {
+        e.preventDefault();
+        this.toStep(this.step - 1);
+      })
+      this.progressUpdate();
+
+      this.steps[this.step].classList.remove('prev', 'next');
+      this.steps[this.step].classList.add('active');
+
+
+
+
+      this.steps.forEach(stepEl => {
+        const applyBtn = stepEl.querySelector(this.applyBtnSelector);
+        const yesBtn = stepEl.querySelector('.yes-btn');
+        const noBtn = stepEl.querySelector('.no-btn');
+        const inputs = stepEl.querySelectorAll('input');
+        const dataInfo = stepEl.querySelector('.data-info');
+
+        inputs.forEach(inputEl => {
+          if (inputEl.type === 'radio') {
+            inputEl.addEventListener('change', e => {
+              if (inputEl.checked) applyBtn.removeAttribute('disabled');
+
+              if (inputEl.dataset.info) {
+                dataInfo.innerText = inputEl.dataset.info;
+                yesBtn.classList.remove('hide');
+                noBtn.classList.remove('hide');
+                applyBtn.classList.add('hide');
+              } else {
+                dataInfo.innerText = '';
+                yesBtn.classList.add('hide');
+                noBtn.classList.add('hide');
+                applyBtn.classList.remove('hide');
+              }
+            })
+          } else if (inputEl.name === 'tel') {
+            inputEl.addEventListener('input', (e) => {
+              var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+              e.target.value = '(' + x[1] + ') ' + x[2] + '-' + x[3];
+              this.updateConfirmPhone(e.target.value);
+            });
+          }
+        });
+
+        noBtn.addEventListener('click', e => {
+          e.preventDefault();
+          this.toCloseWindow();
+        })
+
+        yesBtn.addEventListener('click', e => {
+          e.preventDefault();
+          if (this.validate(stepEl)) {
+            this.nextStep();
+          }
+        })
+
+        applyBtn.addEventListener('click', e => {
+          e.preventDefault();
+          if (this.validate(stepEl)) {
+            this.nextStep();
+          }
+        })
+      })
+    }
+  }
+
+  const formModal = new FormWizard({
+    form: '#step-form',
+    steps: '.step',
+    progress: '#form-progress',
+    nextBtn: '.aplay-btn'
+
+  });
+
 })();
 

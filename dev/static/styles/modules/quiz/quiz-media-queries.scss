@@ -1,0 +1,41 @@
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media screen and (min-width: 991.8px) {
+    section.quiz.modal {
+        .answer-wrapper {
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            max-width: 100%;
+        }
+        .radio-custom {
+            max-width: 168px;
+            margin: 8px 4px;
+            label {
+                padding: 24px;
+                border-radius: 16px;
+                text-align: center;
+                flex-direction: column;
+                min-width: auto;
+                width: 168px;
+                height: 140px;
+                img {
+                    width: 56px;
+                    height: 56px;
+                    margin: 0 0 16px;
+                }
+            }
+        }
+    }
+}

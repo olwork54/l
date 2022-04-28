@@ -20,11 +20,12 @@ body {
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    position: relative;
 }
 
-body.overflow {
-    overflow: hidden;
-}
+// body.overflow {
+//     overflow: hidden;
+// }
 
 *,
 *::before,
@@ -99,6 +100,11 @@ button {
     }
 }
 
+.main-content.overflow{
+    overflow: hidden;
+    max-height: 100vh;
+}
+
 #preloader {
     visibility: hidden;
     display: flex;
@@ -142,11 +148,13 @@ button {
     opacity: 0;
 }
 
-.lazyloading {
+.lazyloading{
     opacity: 1;
     transition: opacity 0.3s;
-    background: #f7f7f7 url(../images/common/preloader.gif) no-repeat center;
+    &.preloader{
+        background: #f7f7f7 url(../images/common/preloader.gif) no-repeat center;
     background-size: 150px 100px;
+    }
 }
 
 .container {

@@ -1,0 +1,269 @@
+section.quiz.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    border: none;
+    height: calc(100vh + 16px);
+    margin-top: -16px;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 100vw;
+    background: #fff;
+
+    .logo {
+        max-width: 165px;
+        max-height: 48px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .progress-wrapper {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        left: 0;
+    }
+
+    .progress {
+        width: 10%;
+        background: #52c41a;
+        height: 4px;
+        transition: width ease $slow;
+    }
+
+    .modal-body {
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        box-shadow: $shadow;
+        border-radius: 16px;
+        width: 100%;
+        position: relative;
+        max-width: 800px;
+        margin: 120px auto 0;
+        padding: 24px 16px;
+        background: #fff;
+    }
+
+    .step {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateX(0);
+        transition: transform ease $slow, opacity ease $slow;
+
+        &.prev {
+            transform: translateX(-50%);
+            transition: transform ease $slow, opacity ease $slow;
+
+        }
+
+        &.next {
+            transform: translateX(50%);
+            transition: transform ease $slow, opacity ease $slow;
+
+        }
+
+        &.active {
+            position: relative;
+            top: initial;
+            opacity: 1;
+            transition: transform ease $slow, opacity ease $slow;
+
+        }
+
+    }
+
+    .step-title {
+        margin: 0;
+        margin-bottom: 16px;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .answer-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-width: 263px;
+        margin: 0 auto 8px;
+    }
+
+    .radio-custom {
+
+        width: 100%;
+        margin-bottom: 8px;
+
+        input {
+            width: 0;
+            height: 0;
+            position: absolute;
+            visibility: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        label {
+            letter-spacing: -.1px;
+            box-sizing: border-box;
+            text-align: left;
+            border-radius: 8px;
+            border: 2px solid #f5f6fe;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+                margin-right: 16px;
+            }
+
+            span {
+                font-size: 14px;
+            }
+        }
+
+        input:checked~label,
+        label:hover {
+            border-color: #fa8c16;
+        }
+    }
+
+    .fancy-input {
+        width: 100%;
+        margin-bottom: 24px;
+        .input-wrapper {
+            background: #f5f6fe;
+            display: flex;
+            align-items: center;
+            padding-left: 16px;
+            padding-right: 16px;
+            height: 56px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        &.error .input-wrapper{
+            border: 1px solid #f00;
+        }
+        .error-msg{
+            color: #f00;
+            font-size: 0.8em;
+        }
+
+        &:hover label {
+            color: $accent-dark;
+        }
+
+        label {
+            color: #bbb;
+            position: absolute;
+            left: 16px;
+            font-size: 1em;
+            transform: translateY(0);
+            transition: transform ease $slow, color ease $fast;
+        }
+
+        input, .phone-confirm {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            background: transparent;
+            border-color: transparent;
+            outline: none;
+
+            &:focus~label {
+                color: $accent-dark;
+            }
+
+            &:valid~label {
+                font-size: 0.8em;
+                transform: translateY(-18px);
+                transition: transform ease $fast;
+            }
+        }
+        .phone-confirm{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .fancy-input:last-child {
+        margin-bottom: 16px;
+    }
+
+    .aplay-btn-wrapper,
+    .yes-no-btns-wrapper {
+        text-align: center;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    .aplay-btn,
+    .no-btn,
+    .yes-btn {
+        padding: 16px 24px;
+        border-radius: 4px;
+        margin: 0 8px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        outline: none;
+        cursor: pointer;
+        white-space: nowrap;
+        border: none;
+        color: #fff;
+        background: #fa8c16;
+
+        &:disabled {
+            background: #ffc88d;
+        }
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    .no-btn {
+        background: transparent;
+        color: $accent-dark;
+        border: 1px solid #bdbdbd;
+    }
+    .change-phone{
+        color: $accent-dark;
+        cursor: pointer;
+        transition: color ease $fast;
+        &:hover{
+            color: rgb(129, 158, 255);
+        }
+    }
+
+    .data-info {
+        text-align: center;
+        margin-bottom: 8px;
+        margin-bottom: 16px;
+        font-size: 1em;
+        line-height: 1.5em;
+        color: $accent-light;
+    }
+}
