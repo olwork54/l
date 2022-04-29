@@ -7,15 +7,15 @@ section.quiz.modal
                 img(src="./static/images/common/quiz/close.svg", alt="")
         
         .hero-wrapper
-            .hero-msg msg
+            #hero-msg.hero-msg
             img.hero.lazyload(data-src="./static/images/common/header/header-bg-img.png", alt="")
             
 
 
-        .modal-body 
+        .modal-body.overflow
             .progress-wrapper
                 #form-progress.progress
-            form#step-form.step-wrapper(action="./success.html" method="POST")
+            form#step-form.step-wrapper(action="success.html" method="POST")
                 input.zip-input(type="hidden" name="zip code")
 
 
@@ -23,26 +23,25 @@ section.quiz.modal
                     .step-title Why are you interested in a walk-in tub?
                     .answer-wrapper
                         .radio-custom
-                            input(name="why_interested" data-info="data inf 1" id="why_interested-1" type="radio" value="1")
+                            input(name="why_interested" id="why_interested-1" type="radio" value="1")
                             label(for="why_interested-1") 
-                                img(src="./static/images/common/reviews/profile-boy.svg", alt="")
-                                .name: span Safty
+                                img(src="./static/images/common/quiz/safety.svg", alt="")
+                                .name: span Safety
 
                         .radio-custom
-                            input(name="why_interested" id="why_interested-2" type="radio" value="1")
+                            input(name="why_interested" id="why_interested-2" type="radio" value="2")
                             label(for="why_interested-2") 
-                                img(src="./static/images/common/reviews/profile-boy.svg", alt="")
-                                .name: span Safty
+                                img(src="./static/images/common/quiz/bath1.svg", alt="")
+                                .name: span Therapy
 
                         .radio-custom
-                            input(name="why_interested" id="why_interested-3" type="radio" value="1")
+                            input(name="why_interested" id="why_interested-3" type="radio" value="3")
                             label(for="why_interested-3") 
-                                img(src="./static/images/common/reviews/profile-boy.svg", alt="")
-                                .name: span Safty
+                                img(src="./static/images/common/quiz/question2.svg", alt="")
+                                .name: span Other
 
                     p.data-info 
 
-                    .btns
                     .aplay-btn-wrapper 
                         button.aplay-btn(disabled) next
                         button.no-btn.hide no
@@ -51,25 +50,20 @@ section.quiz.modal
 
 
                 .step.next(data-type="radio") 
-                    .step-title Why are you interested in a walk-in tub?
+                    .step-title Are you the homeowner?
                     .answer-wrapper
                         .radio-custom
-                            input(name="name-2" data-info="data inf 2" id="id1" type="radio" value="1")
-                            label(for="id1") 
-                                img(src="./static/images/common/reviews/profile-boy.svg", alt="")
-                                .name: span sfd
+                            input(name="internal_owner" id="internal_owner1" type="radio" value="1")
+                            label(for="internal_owner1") 
+                                img(src="./static/images/common/quiz/yes.svg", alt="")
+                                .name: span yes
 
                         .radio-custom
-                            input(name="name-2" id="id2" type="radio" value="1")
-                            label(for="id2") 
-                                img(src="./static/images/common/reviews/profile-boy.svg", alt="")
-                                .name: span sdg
+                            input(name="internal_owner" id="internal_owner2" type="radio" value="2" data-info="Note that our installers require the homeowner be present during an estimate. Would you like to continue?")
+                            label(for="internal_owner2") 
+                                img(src="./static/images/common/quiz/no.svg", alt="")
+                                .name: span no
 
-                        .radio-custom
-                            input(name="name-2" id="id3" type="radio" value="1")
-                            label(for="id3") 
-                                img(src="./static/images/common/reviews/profile-boy.svg", alt="")
-                                .name: span sdgsdg
                     p.data-info 
 
                     .aplay-btn-wrapper 
@@ -78,19 +72,94 @@ section.quiz.modal
                         button.yes-btn.hide yes
 
 
-                .step.next(data-info="text ") 
-                    .step-title Why are you interested in a walk-in tub?
+
+                .step.next(data-type="radio") 
+                    .step-title Is it a mobile, modular or manufactured home?
                     .answer-wrapper
+                        .radio-custom
+                            input(name="internal_mobile_home" id="internal_mobile_home1" type="radio" value="1" data-info="Unfortunately, our installers do not work with mobile, modular or manufactured homes. Would you still like to continue?")
+                            label(for="internal_mobile_home1") 
+                                img(src="./static/images/common/quiz/yes.svg", alt="")
+                                .name: span yes
+
+                        .radio-custom
+                            input(name="internal_mobile_home" id="internal_mobile_home2" type="radio" value="2")
+                            label(for="internal_mobile_home2") 
+                                img(src="./static/images/common/quiz/no.svg", alt="")
+                                .name: span no
+
+                    p.data-info 
+
+                    .aplay-btn-wrapper 
+                        button.aplay-btn(disabled) next
+                        button.no-btn.hide no
+                        button.yes-btn.hide yes
+
+
+
+                .step.next(data-type="radio") 
+                    .step-title IIs there an existing bathtub or shower that we would be replacing?
+                    .answer-wrapper
+                        .radio-custom
+                            input(name="internal_existing-tub" id="internal_existing-tub1" type="radio" value="1")
+                            label(for="internal_existing-tub1") 
+                                img(src="./static/images/common/quiz/yes.svg", alt="")
+                                .name: span yes
+
+                        .radio-custom
+                            input(name="internal_existing-tub" id="internal_existing-tub2" type="radio" value="1" data-info="Unfortunately, our installers can only replace an existing bathtub or shower. Would you still like to continue?")
+                            label(for="internal_existing-tub2") 
+                                img(src="./static/images/common/quiz/no.svg", alt="")
+                                .name: span no
+
+                    p.data-info 
+
+                    .aplay-btn-wrapper 
+                            button.aplay-btn(disabled) next
+                            button.no-btn.hide no
+                            button.yes-btn.hide yes
+
+
+
+                .step.next(data-type="radio") 
+                    .step-title Is this request covered by an insurance or VA claim?
+                    .answer-wrapper
+                        .radio-custom
+                            input(name="internal_insurance_coverage" id="internal_insurance_coverage1" type="radio" value="1" data-info="Unfortunately, our installers do not currently work with insurance or VA claims. Would you still like to continue?")
+                            label(for="internal_insurance_coverage1") 
+                                img(src="./static/images/common/quiz/yes.svg", alt="")
+                                .name: span yes
+
+                        .radio-custom
+                            input(name="internal_insurance_coverage" id="internal_insurance_coverage2" type="radio" value="1")
+                            label(for="internal_insurance_coverage2") 
+                                img(src="./static/images/common/quiz/no.svg", alt="")
+                                .name: span no
+
+                    p.data-info 
+
+                    .aplay-btn-wrapper 
+                        button.aplay-btn(disabled) next
+                        button.no-btn.hide no
+                        button.yes-btn.hide yes
+
+
+
+                .step.next(data-info="Almost there...")
+                    .step-title Who should I prepare this estimate for?
+                    .answer-wrapper 
                         .fancy-input 
                             .input-wrapper
-                                input(name="name" id="input-name" type="text" required="required")
-                                label(for="input-name") Full name
+                                .input-side
+                                    input(name="name" id="input-name" type="text" required="required")
+                                    label(for="input-name") Full name
                             .error-msg
 
                         .fancy-input 
                             .input-wrapper
-                                input(name="email" id="input-email" type="text" required="required")
-                                label(for="input-email") Email
+                                .input-side
+                                    input(name="email" id="input-email" type="text" required="required")
+                                    label(for="input-email") Email
                             .error-msg
                         
                     p.data-info 
@@ -101,13 +170,16 @@ section.quiz.modal
                         button.yes-btn.hide yes
 
 
-                .step.next(data-info="text 2") 
-                    .step-title Why are you interested in a walk-in tub?
+
+                .step.next(data-info="And the final step!")
+                    .step-title A valid phone number is required to issue a formal estimate.
                     .answer-wrapper
                         .fancy-input 
                             .input-wrapper
-                                input(name="tel" id="input-tel" type="text" required="required")
-                                label(for="input-tel") Phone
+                                img.icon(src="./static/images/common/quiz/lock.svg", alt="")
+                                .input-side
+                                    input(name="tel" id="input-tel" type="text" required="required")
+                                    label(for="input-tel") phone number
                             .error-msg
                         
                     p.data-info 
@@ -118,24 +190,32 @@ section.quiz.modal
                         button.yes-btn.hide yes
 
 
-                .step.next(data-info="text 2") 
-                    .step-title Why are you interested in a walk-in tub?
+                .step.next(data-info="And the final step!") 
+                    .step-title Please confirm your phone number.
+                    .subtitle Make sure the number you entered is correct.
                     .answer-wrapper
                         .fancy-input 
-                            .input-wrapper
-                                span.phone-confirm
+                            .input-wrapper.disabled
+                                .input-side
+                                    label phone number
+                                    span.phone-confirm
                             .error-msg
 
-                    a.change-phone Change phone
+                    
                     p.data-info 
 
                     .aplay-btn-wrapper 
-                        button.submit(type="sumit") Confirm
+                        a.change-phone(href="#") Edit phone number
+                        button.submit(type="sumit") Phone number is correct
                         button.aplay-btn.hide Confirm
                         button.no-btn.hide no
                         button.yes-btn.hide yes
 
+                    p.add-infoSiren Group AG, the operator of this website, and/or our local partner will contact you via a call, text or email using manual or automated technology at the telephone number provided, including your wireless number, to arrange a convenient time to do an in-home estimate for you. You understand that your consent is not required to purchase products or services, and you understand that you may revoke your consent at any time.e
 
+        .sub-info
+            img(src="./static/images/common/quiz/lock.svg", alt="")
+            p Safe, Secure and Confidential
 
 
 section.are-you-shure
@@ -145,18 +225,45 @@ section.are-you-shure
                 img(src="./static/images/common/logo-dark.svg", alt="")
         
         .hero-wrapper
-            .hero-msg Let`s get started on your walk-in tub estimate!
+            .hero-msg Wait! Are you sure about canceling your free, no-obligation estimate?
             img.hero.lazyload(data-src="./static/images/common/header/header-bg-img.png", alt="")
 
         .modal-body
             .step-wrapper
 
                 .step.active
-                    .step-title are you shure?
+                    .step-title We just need to confirm your information to get you a quote.
+                    .subtitle It takes only 2 minutes.
                     .answer-wrapper
                     .aplay-btn-wrapper 
-                        button.no-btn.exit no
-                        button.yes-btn.continue yes
+                        button.no-btn.exit Cancel project
+                        button.yes-btn.continue Return to project
+
+                    p.data-info 
+
+
+section.to-home-page
+    .container 
+        .modal-header 
+            .logo 
+                img(src="./static/images/common/logo-dark.svg", alt="")
+        
+        .hero-wrapper
+            .hero-msg
+            img.hero.lazyload(data-src="./static/images/common/header/header-bg-img.png", alt="")
+
+        .modal-body
+            .main-step-icon 
+                img(src="./static/images/common/quiz/hand-wave.svg", alt="")
+            .step-wrapper
+
+                .step.active
+                    .step-title Sorry to see you go!
+                    .subtitle Check out the other services that we offer.
+                    .answer-wrapper
+                    .aplay-btn-wrapper 
+                        button.yes-btn.exit Go to homepage
+                        button.yes-btn.continue.hide Return to project
 
                     p.data-info 
 

@@ -388,15 +388,31 @@
       const mainContent = document.querySelector('.main-content');
       const zipModal = document.querySelector('.quiz.modal');
       const shureModal = document.querySelector('.are-you-shure');
+      const toHome = document.querySelector('.to-home-page');
 
       mainContent.classList.remove('overflow');
       zipModal.classList.remove('show');
       shureModal.classList.remove('show');
+      toHome.classList.remove('show');
       this.toStep(0);
       this.form.reset();
     }
+    toggleConfirmExitWindow(){
+      const zipModal = document.querySelector('.quiz.modal');
+      const shureModal = document.querySelector('.are-you-shure');
 
-    toCloseWindow() { console.log('toCloseWindow'); }
+      shureModal.classList.toggle('show');
+      zipModal.classList.toggle('show');
+    }
+
+    openGoToHomeWindow(){
+      const zipModal = document.querySelector('.quiz.modal');
+      const toHome = document.querySelector('.to-home-page');
+
+      toHome.classList.add('show');
+      zipModal.classList.remove('show');
+    }
+
     toStep(n) {
       this.step = n;
       this.steps.forEach((stepEl, i) => {
@@ -415,11 +431,9 @@
       this.updateHeroMsg(this.steps[this.step]);
       this.progressUpdate();
     }
-
     progressUpdate() {
       this.progress.style.width = (100 / this.stepsAmount) * (this.step + 1) + '%';
     }
-
     nextStep() {
       this.step++;
       this.steps.forEach((stepEl, i) => {
@@ -437,7 +451,6 @@
       this.updateHeroMsg(this.steps[this.step]);
       this.progressUpdate();
     }
-
     validate(stepEl) {
       const inputs = stepEl.querySelectorAll('input');
       let error = false;
@@ -454,7 +467,6 @@
 
       return !error;
     }
-
     validateEmail(inputEl) {
       const fancyInput = inputEl.closest('.fancy-input');
       const erorEl = fancyInput.querySelector('.error-msg');
@@ -481,7 +493,6 @@
 
       return error;
     }
-
     validateName(inputEl) {
       const fancyInput = inputEl.closest('.fancy-input');
       const erorEl = fancyInput.querySelector('.error-msg');
@@ -511,7 +522,6 @@
 
       return error;
     }
-
     validateTel(inputEl) {
       const fancyInput = inputEl.closest('.fancy-input');
       const erorEl = fancyInput.querySelector('.error-msg');
@@ -538,38 +548,29 @@
 
       return error;
     }
-
     updateConfirmPhone(tel) {
       if (this.form.querySelector('.phone-confirm')) {
         const phoneConfirmEl = this.form.querySelector('.phone-confirm');
         phoneConfirmEl.innerText = tel;
       }
     }
-
     updateHeroMsg(elem){
-      const heroMsgElems = document.querySelectorAll('.hero-msg');
+      const heroMsgElems = document.querySelector('#hero-msg');
 
-      heroMsgElems.forEach( el => {
         if (elem.dataset.info) {
-          el.innerText = elem.dataset.info;
+          heroMsgElems.innerText = elem.dataset.info;
         } else {
-          el.innerText = '';
+          heroMsgElems.innerText = '';
         }
-      })
-    }
-    toggleCloseWindow(){
-      const zipModal = document.querySelector('.quiz.modal');
-      const shureModal = document.querySelector('.are-you-shure');
 
-      shureModal.classList.toggle('show');
-      zipModal.classList.toggle('show');
     }
-
+    
 
     init() {
       const changePhoneEl = this.form.querySelector('.change-phone');
       const closeBtn = document.querySelector('.close-modal-btn'); 
       const exitQuiz = document.querySelector('.are-you-shure .exit'); 
+      const goHome = document.querySelector('.to-home-page .exit'); 
       const continueQuiz = document.querySelector('.are-you-shure .continue'); 
 
       this.progressUpdate();
@@ -614,24 +615,28 @@
           }
         });
 
-        noBtn.addEventListener('click', e => {
-          e.preventDefault();
-          this.toggleCloseWindow();
-        })
+        // if (noBtn && yesBtn && applyBtn) {
+          noBtn.addEventListener('click', e => {
+            e.preventDefault();
+            this.openGoToHomeWindow();
+          })
+  
+          yesBtn.addEventListener('click', e => {
+            e.preventDefault();
+            if (this.validate(stepEl)) {
+              this.nextStep();
+            }
+          })
+  
+          applyBtn.addEventListener('click', e => {
+            e.preventDefault();
+            if (this.validate(stepEl)) {
+              this.nextStep();
+            }
+          })
+        // }
 
-        yesBtn.addEventListener('click', e => {
-          e.preventDefault();
-          if (this.validate(stepEl)) {
-            this.nextStep();
-          }
-        })
-
-        applyBtn.addEventListener('click', e => {
-          e.preventDefault();
-          if (this.validate(stepEl)) {
-            this.nextStep();
-          }
-        })
+        
       })
 
       changePhoneEl.addEventListener('click', e => {
@@ -640,7 +645,7 @@
       })
 
       closeBtn.addEventListener('click', e => {
-        this.toggleCloseWindow();
+        this.toggleConfirmExitWindow();
       })
 
       exitQuiz.addEventListener('click', e =>{
@@ -648,9 +653,19 @@
         this.closeModalWindow();
       })
 
+      goHome.addEventListener('click', e =>{
+        e.preventDefault();
+        this.closeModalWindow();
+      })
+
       continueQuiz.addEventListener('click', e =>{
         e.preventDefault();
-        this.toggleCloseWindow();
+        this.toggleConfirmExitWindow();
+      })
+
+      this.form.addEventListener('submit', e => {
+        e.preventDefault();
+        window.location.href = './success.html';
       })
 
     }
@@ -683,14 +698,14 @@
       form.addEventListener('submit', e => {
         e.preventDefault();
 
-        if (input.value.length === 6) openModal(input.value), form.reset();
-        else errorMsg.innerText = 'Enter valid zip-code';
+        if (input.value.length === 5) openModal(input.value), form.reset();
+        else errorMsg.innerText = 'Enter valid zip-code: 6 numbers';
 
       });
       input.addEventListener('input', e => {
-        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,6})/);
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,5})/);
         e.target.value = x[1];
-        if (e.target.value.length === 6) {
+        if (e.target.value.length === 5) {
           errorMsg.innerText = '';
         }
       })

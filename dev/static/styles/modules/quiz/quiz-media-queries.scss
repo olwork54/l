@@ -1,6 +1,7 @@
 @media (min-width: 576px) {
     section.quiz.modal ,
-    section.are-you-shure{
+    section.are-you-shure ,
+    section.to-home-page{
         .container {
             max-width: 540px;
         }
@@ -10,7 +11,8 @@
 
 @media (min-width: 768px) {
     section.quiz.modal ,
-    section.are-you-shure{
+    section.are-you-shure,
+    section.to-home-page{
         .container {
             max-width: 720px;
 
@@ -25,7 +27,8 @@
 
 @media screen and (min-width: 991.8px) {
     section.quiz.modal ,
-    section.are-you-shure{
+    section.are-you-shure,
+    section.to-home-page{
         .container {
             max-width: 1171px;
         }
