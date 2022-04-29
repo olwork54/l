@@ -84,13 +84,14 @@
 
                 .btn-wrap {
                     flex-direction: row;
-                    align-items: center;
+                    align-items: flex-start;
                     justify-content: center;
 
                     button,
                     a {
                         margin-top: 0;
                         margin-left: 16px;
+                        padding: 13px 24px 12px;
                     }
                 }
             }

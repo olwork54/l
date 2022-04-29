@@ -18,6 +18,9 @@
             }
 
             .hero {
+                position: relative;
+                top: initial;
+                right: initial;
                 img {
                     bottom: -48px;
                 }

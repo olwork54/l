@@ -611,7 +611,7 @@ section.main-action {
         background-image: $bg-img-dark;
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
+        overflow: hidden;
         .enter-zip-code-wrap {
             .title {
                 color: #fff;

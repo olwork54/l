@@ -208,7 +208,7 @@
         .enter-zip-code-wrap {
             margin: 0 auto 48px;
             text-align: center;
-        
+            
             .title {
                 font-size: 2em;
                 max-width: 800px;
@@ -217,15 +217,20 @@
                 margin-top: 48px;
                 max-width: 600;
                 flex-direction: row;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
     
                 button,
                 a {
                     margin-top: 0;
                     margin-left: 16px;
+                    padding: 13px 24px 12px;
                 }
             }
+            
+        }
+        &.dark {
+            background-attachment: fixed;
         }
     }
 }

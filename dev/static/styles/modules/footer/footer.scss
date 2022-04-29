@@ -84,8 +84,11 @@ footer {
 
         .hero {
             align-self: stretch;
-            position: relative;
+            position: absolute;
             width: 96px;
+            bottom: 0;
+            right: -15px;
+            z-index: -1;
 
             img {
                 position: absolute;
