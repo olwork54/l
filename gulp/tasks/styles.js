@@ -10,7 +10,7 @@ const gulpif = require('gulp-if');
 // Работаем со стилями
 
 module.exports = function styles() {
-  return gulp.src('dev/static/styles/styles.scss')
+  return gulp.src('dev/static/styles/*.scss')
     .pipe(plumber())
     .pipe(gulpif(!argv.prod, sourcemaps.init()))
     .pipe(scss())

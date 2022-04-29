@@ -1,0 +1,28 @@
+include ../helpers/mixins
+block variables
+
+doctype html
+html(lang="en-US")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+
+		link(rel="icon", type="image/png", href="./static/images/common/favicon.png")
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="description", content="")
+		meta(name="keywords" content="")
+
+		link(rel="stylesheet" type='text/css' href="static/css/policy.css?v=2.2")
+		link(rel="stylesheet" type='text/css' href="static/css/styles.css?v=2.2")
+		
+		link(rel='preconnect' href='https://fonts.googleapis.com')
+		link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+		link(href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap' rel='stylesheet')
+
+		
+	body
+		block content
+
