@@ -25,6 +25,9 @@
             
         }
         &.scrolled {
+            .mibile-title{
+                display: none;
+            }
             .title {
                 white-space: nowrap;
                 display: inline-block!important;

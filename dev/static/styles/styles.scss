@@ -21,6 +21,8 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     position: relative;
+    background: #f6faff;
+
 }
 
 // body.overflow {
@@ -82,6 +84,7 @@ textarea {
 
 section {
     position: relative;
+    background: #fff;
 }
 
 input,
@@ -100,9 +103,10 @@ button {
     }
 }
 
-.main-content.overflow{
-    overflow: hidden;
-    max-height: 100vh;
+.main-content.overflow {
+    display: none;
+    // overflow: hidden;
+    // max-height: 100vh;
 }
 
 #preloader {
@@ -148,14 +152,17 @@ button {
     opacity: 0;
 }
 
-.lazyloading{
+.lazyloading {
     opacity: 1;
     transition: opacity 0.3s;
-    &.preloader{
+
+    &.preloader {
         background: #f7f7f7 url(../images/common/preloader.gif) no-repeat center;
-    background-size: 150px 100px;
+        background-size: 64px 64px;
     }
 }
+
+
 
 .container {
     margin: 0 auto;
@@ -208,11 +215,13 @@ h3.section-subtitle {
 }
 
 .enter-zip-code-wrap {
-    .error-msg{
-        margin-top: 8px;
-        font-size: 0.9em;
+    .error-msg {
+        margin-top: 4px;
+        font-size: 0.8em;
+        line-height: 0.9em;
         color: $accent-light;
     }
+
     input {
         width: 100%;
         background: transparent;
@@ -234,6 +243,7 @@ h3.section-subtitle {
         &:focus,
         &:hover {
             border-color: #fff;
+
             &::placeholder {
                 color: rgba($color: #fff, $alpha: 0.80);
             }
@@ -260,7 +270,7 @@ h3.section-subtitle {
             transform: scale(1.04);
         }
     }
-    
+
     .description {
         text-align: center;
         font-weight: 400;

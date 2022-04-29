@@ -1,43 +1,21 @@
-@media (min-width: 576px) {
-    section.quiz.modal ,
-    section.are-you-shure ,
-    section.to-home-page{
-        .container {
-            max-width: 540px;
-        }
-    }
-
-}
-
-@media (min-width: 768px) {
-    section.quiz.modal ,
-    section.are-you-shure,
-    section.to-home-page{
-        .container {
-            max-width: 720px;
-
-            .fancy-input {
-                max-width: 400px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-    }
-}
-
 @media screen and (min-width: 991.8px) {
     section.quiz.modal ,
     section.are-you-shure,
     section.to-home-page{
-        .container {
-            max-width: 1171px;
-        }
+
         .answer-wrapper {
             justify-content: center;
             flex-direction: row;
             flex-wrap: wrap;
-
             max-width: 100%;
+        }
+        .modal-body {
+            max-width: 800px;
+        }
+
+        .fancy-input{
+            max-width: 400px;
+
         }
 
         .radio-custom {
@@ -60,5 +38,26 @@
                 }
             }
         }
+
+        .success-text {
+            flex-direction: row;
+            flex-wrap: nowrap;
+            .top{
+                justify-content: flex-start;
+            }
+            .col{
+                margin-left: 8px;
+                margin-right: 8px;
+
+                &:first-child{
+                    margin-left: 0;
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+
+        }
+
     }
 }

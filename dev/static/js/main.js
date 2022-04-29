@@ -20,11 +20,12 @@
 
 
   function hidePreloader() {
-    let animTime = 100,
-      preloader = document.getElementById('preloader'),
-      logo = document.querySelector('.logo');
+    let animTime = 0;
+    let preloader = document.getElementById('preloader');
+    // let logo = document.querySelector('.logo');
+
     setTimeout(() => {
-      logo.classList.remove('show');
+      // logo.classList.remove('show');
       setTimeout(() => {
         preloader.style.transition = `visibility ease ${animTime}ms, opacity ease ${animTime}ms`;
         preloader.classList.remove('show');
@@ -384,20 +385,36 @@
       this.init();
     }
 
-    closeModalWindow(){
+    closeModalWindow() {
       const mainContent = document.querySelector('.main-content');
       const zipModal = document.querySelector('.quiz.modal');
       const shureModal = document.querySelector('.are-you-shure');
       const toHome = document.querySelector('.to-home-page');
 
+      const aplayBtns =  this.form.querySelectorAll(this.applyBtnSelector);
+      const yesNoBtns =  this.form.querySelectorAll('.yes-btn, .no-btn');
+      const dataInfo =  this.form.querySelectorAll('.data-info');
+
       mainContent.classList.remove('overflow');
       zipModal.classList.remove('show');
       shureModal.classList.remove('show');
       toHome.classList.remove('show');
-      this.toStep(0);
+
       this.form.reset();
+      this.toStep(0);
+
+      aplayBtns.forEach( el => {
+        el.classList.remove('hide');
+        if (el.dataset.state === 'disable') {
+          el.setAttribute('disabled', 'disabled');
+        }
+      })
+      yesNoBtns.forEach( el => el.classList.add('hide'));
+      dataInfo.forEach( el => el.innerText = '');
     }
-    toggleConfirmExitWindow(){
+
+  
+    toggleConfirmExitWindow() {
       const zipModal = document.querySelector('.quiz.modal');
       const shureModal = document.querySelector('.are-you-shure');
 
@@ -405,7 +422,7 @@
       zipModal.classList.toggle('show');
     }
 
-    openGoToHomeWindow(){
+    openGoToHomeWindow() {
       const zipModal = document.querySelector('.quiz.modal');
       const toHome = document.querySelector('.to-home-page');
 
@@ -436,20 +453,7 @@
     }
     nextStep() {
       this.step++;
-      this.steps.forEach((stepEl, i) => {
-        if (i < this.step) {
-          stepEl.classList.remove('active', 'next');
-          stepEl.classList.add('prev');
-        } else if (i === this.step) {
-          stepEl.classList.remove('prev', 'next');
-          stepEl.classList.add('active');
-        } else {
-          stepEl.classList.remove('prev', 'active');
-          stepEl.classList.add('next');
-        }
-      })
-      this.updateHeroMsg(this.steps[this.step]);
-      this.progressUpdate();
+      this.toStep(this.step);
     }
     validate(stepEl) {
       const inputs = stepEl.querySelectorAll('input');
@@ -554,24 +558,22 @@
         phoneConfirmEl.innerText = tel;
       }
     }
-    updateHeroMsg(elem){
+    updateHeroMsg(elem) {
       const heroMsgElems = document.querySelector('#hero-msg');
-
-        if (elem.dataset.info) {
-          heroMsgElems.innerText = elem.dataset.info;
-        } else {
-          heroMsgElems.innerText = '';
-        }
-
+      if (elem.dataset.info) {
+        heroMsgElems.innerText = elem.dataset.info;
+      } else {
+        heroMsgElems.innerText = '';
+      }
     }
-    
+
 
     init() {
       const changePhoneEl = this.form.querySelector('.change-phone');
-      const closeBtn = document.querySelector('.close-modal-btn'); 
-      const exitQuiz = document.querySelector('.are-you-shure .exit'); 
-      const goHome = document.querySelector('.to-home-page .exit'); 
-      const continueQuiz = document.querySelector('.are-you-shure .continue'); 
+      const closeBtn = document.querySelector('.close-modal-btn');
+      const exitQuiz = document.querySelector('.are-you-shure .exit');
+      const goHome = document.querySelector('.to-home-page .exit');
+      const continueQuiz = document.querySelector('.are-you-shure .continue');
 
       this.progressUpdate();
 
@@ -579,7 +581,7 @@
       this.steps[this.step].classList.add('active');
 
       this.updateHeroMsg(this.steps[this.step]);
-      
+
       this.steps.forEach(stepEl => {
         const applyBtn = stepEl.querySelector(this.applyBtnSelector);
         const yesBtn = stepEl.querySelector('.yes-btn');
@@ -615,28 +617,24 @@
           }
         });
 
-        // if (noBtn && yesBtn && applyBtn) {
-          noBtn.addEventListener('click', e => {
-            e.preventDefault();
-            this.openGoToHomeWindow();
-          })
-  
-          yesBtn.addEventListener('click', e => {
-            e.preventDefault();
-            if (this.validate(stepEl)) {
-              this.nextStep();
-            }
-          })
-  
-          applyBtn.addEventListener('click', e => {
-            e.preventDefault();
-            if (this.validate(stepEl)) {
-              this.nextStep();
-            }
-          })
-        // }
+        noBtn.addEventListener('click', e => {
+          e.preventDefault();
+          this.openGoToHomeWindow();
+        })
 
-        
+        yesBtn.addEventListener('click', e => {
+          e.preventDefault();
+          if (this.validate(stepEl)) {
+            this.nextStep();
+          }
+        })
+
+        applyBtn.addEventListener('click', e => {
+          e.preventDefault();
+          if (this.validate(stepEl)) {
+            this.nextStep();
+          }
+        })
       })
 
       changePhoneEl.addEventListener('click', e => {
@@ -648,17 +646,17 @@
         this.toggleConfirmExitWindow();
       })
 
-      exitQuiz.addEventListener('click', e =>{
+      exitQuiz.addEventListener('click', e => {
         e.preventDefault();
         this.closeModalWindow();
       })
 
-      goHome.addEventListener('click', e =>{
+      goHome.addEventListener('click', e => {
         e.preventDefault();
         this.closeModalWindow();
       })
 
-      continueQuiz.addEventListener('click', e =>{
+      continueQuiz.addEventListener('click', e => {
         e.preventDefault();
         this.toggleConfirmExitWindow();
       })
@@ -667,7 +665,6 @@
         e.preventDefault();
         window.location.href = './success.html';
       })
-
     }
   }
 
@@ -714,8 +711,10 @@
 
 
   zipCodeHeandler();
-  lazyVideoPoster();
-  window.addEventListener('load', hidePreloader);
+  window.addEventListener('load', e => {
+    hidePreloader();
+    lazyVideoPoster();
+  });
   smoothScroll();
   navHeandler.init();
   // modalFormHeandler.init();

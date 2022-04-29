@@ -5,19 +5,21 @@ footer
                 .no-wrap
                     .col.policies
                         .logo
-                            a(href="./index.html") 
-                                img.lazyload(data-src="./static/images/common/logo-v2.png", alt="")
+                            a.logo-link(href="./index.html") 
+                                img.logo.lazyload(data-src="./static/images/common/logo-light.svg", alt="Logo")
+                                span.divider –
+                                img.logo.lazyload(data-src="./static/images/common/logo-ella.png", alt="Logo")
                         .list
-                            a.item(href="#")  Terms of Use
-                            a.item(href="#")  Privacy Policy
-                            a.item(href="#")  Cookie Policy
-                            a.item(href="#")  Do Not Sell My Personal Information
-                            a.item(href="#")  Contact us 
+                            //- a.item(href="#")  Terms of Use
+                            a.item(href="./privacy.hml")  Privacy Policy
+                            //- a.item(href="#")  Cookie Policy
+                            //- a.item(href="#")  Do Not Sell My Personal Information
+                            //- a.item(href="#")  Contact us 
 
                     .col.hero 
                         img.lazyload(data-src="./static/images/common/header/header-bg-img.png", alt="")
 
-                .col.social-list 
+                //- .col.social-list 
                     .title Follow us 
                     .list
                         a.item(href="#"): img.lazyload(data-src="./static/images/common/footer/facebook-round.svg", alt="") 

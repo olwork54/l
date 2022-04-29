@@ -15,18 +15,20 @@
             background-position: right 0 center;
 
             h1 {
-                margin-top: 196px;
+                margin-top: 16vh;
                 font-size: 64px;
+                line-height: 64px;
                 text-align: left;
                 max-width: 680px;
             }
 
             .description {
                 text-align: left;
-                margin: 10px 0 0;
-                font-size: 1.4em;
-                line-height: 120%;
-                max-width: 680px;
+                margin: 16px 0 0;
+                font-size: 1.6em;
+                line-height: 140%;
+                max-width: 580px;
+                text-transform: uppercase;
             }
 
             @keyframes blinker {
@@ -43,21 +45,8 @@
                 }
             }
 
-            @-webkit-keyframes blinker {
-                0% {
-                    opacity: 1.0;
-                }
-
-                50% {
-                    opacity: 0.5;
-                }
-
-                100% {
-                    opacity: 1.0;
-                }
-            }
-
             .hero-wrap {
+                display: block;
                 position: absolute;
                 z-index: 0;
                 top: 20%;
@@ -75,11 +64,14 @@
 
             .enter-zip-code-wrap {
                 max-width: 600px;
-                margin: 120px auto 0;
+                margin: 10vh auto 0;
                 text-align: center;
                 .title {
+                    text-transform: uppercase;
                     font-size: 1.6em;
+                    line-height: 140%;
                     text-align: center;
+                    margin-bottom: 8px;
                 }
 
                 .btn-wrap {
@@ -97,7 +89,7 @@
             }
 
             .desktop-scroll-arrow-wrap {
-                margin-top: 164px;
+                margin-top: 16vh;
                 display: block;
                 text-align: center;
 
