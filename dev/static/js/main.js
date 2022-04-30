@@ -390,10 +390,12 @@
       const zipModal = document.querySelector('.quiz.modal');
       const shureModal = document.querySelector('.are-you-shure');
       const toHome = document.querySelector('.to-home-page');
-
+      
+      const errMsg = this.form.querySelectorAll('.error-msg');
       const aplayBtns =  this.form.querySelectorAll(this.applyBtnSelector);
       const yesNoBtns =  this.form.querySelectorAll('.yes-btn, .no-btn');
       const dataInfo =  this.form.querySelectorAll('.data-info');
+      const fancyInput = this.form.querySelectorAll('.fancy-input');
 
       mainContent.classList.remove('overflow');
       zipModal.classList.remove('show');
@@ -409,11 +411,11 @@
           el.setAttribute('disabled', 'disabled');
         }
       })
-      yesNoBtns.forEach( el => el.classList.add('hide'));
-      dataInfo.forEach( el => el.innerText = '');
+      yesNoBtns.forEach (el => el.classList.add('hide'));
+      dataInfo.forEach (el => el.innerText = '');
+      errMsg.forEach (el => el.innerText = '');
+      fancyInput.forEach (el => el.classList.remove('error'))
     }
-
-  
     toggleConfirmExitWindow() {
       const zipModal = document.querySelector('.quiz.modal');
       const shureModal = document.querySelector('.are-you-shure');
@@ -421,7 +423,6 @@
       shureModal.classList.toggle('show');
       zipModal.classList.toggle('show');
     }
-
     openGoToHomeWindow() {
       const zipModal = document.querySelector('.quiz.modal');
       const toHome = document.querySelector('.to-home-page');
@@ -429,7 +430,6 @@
       toHome.classList.add('show');
       zipModal.classList.remove('show');
     }
-
     toStep(n) {
       this.step = n;
       this.steps.forEach((stepEl, i) => {
@@ -460,12 +460,12 @@
       let error = false;
 
       inputs.forEach(inputEl => {
-        if (inputEl.name === 'tel') {
-          error = this.validateTel(inputEl);
-        } if (inputEl.name === 'name') {
-          error = this.validateName(inputEl);
-        } else if (inputEl.name === 'email') {
-          error = this.validateEmail(inputEl);
+        if (inputEl.name === 'tel' && this.validateTel(inputEl)) {
+          error = true;
+        } if (inputEl.name === 'name' && this.validateName(inputEl)) {
+          error = true;
+        } else if (inputEl.name === 'email' && this.validateEmail(inputEl)) {
+           error = true;
         }
       });
 
@@ -523,7 +523,6 @@
         fancyInput.classList.remove('error');
         erorEl.innerText = '';
       })
-
       return error;
     }
     validateTel(inputEl) {
@@ -589,7 +588,6 @@
         const inputs = stepEl.querySelectorAll('input');
         const dataInfo = stepEl.querySelector('.data-info');
 
-
         inputs.forEach(inputEl => {
           if (inputEl.type === 'radio') {
             inputEl.addEventListener('change', e => {
@@ -617,24 +615,30 @@
           }
         });
 
-        noBtn.addEventListener('click', e => {
-          e.preventDefault();
-          this.openGoToHomeWindow();
-        })
+        try{
+          noBtn.addEventListener('click', e => {
+            e.preventDefault();
+            this.openGoToHomeWindow();
+          })
+        } catch (er) {}
 
-        yesBtn.addEventListener('click', e => {
-          e.preventDefault();
-          if (this.validate(stepEl)) {
-            this.nextStep();
-          }
-        })
-
-        applyBtn.addEventListener('click', e => {
-          e.preventDefault();
-          if (this.validate(stepEl)) {
-            this.nextStep();
-          }
-        })
+        try{
+          yesBtn.addEventListener('click', e => {
+            e.preventDefault();
+            if (this.validate(stepEl)) {
+              this.nextStep();
+            }
+          })
+        } catch (er) {}
+        
+        try {
+          applyBtn.addEventListener('click', e => {
+            e.preventDefault();
+            if (this.validate(stepEl)) {
+              this.nextStep();
+            }
+          })
+        } catch (er) {}
       })
 
       changePhoneEl.addEventListener('click', e => {
@@ -667,6 +671,7 @@
       })
     }
   }
+
 
   const formModal = new FormWizard({
     form: '#step-form',
@@ -710,13 +715,14 @@
   }
 
 
-  zipCodeHeandler();
   window.addEventListener('load', e => {
     hidePreloader();
     lazyVideoPoster();
   });
   smoothScroll();
   navHeandler.init();
+  zipCodeHeandler();
+
   // modalFormHeandler.init();
   // modalPolicyHeandler.init();
   // langChanger.init();

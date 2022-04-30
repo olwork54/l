@@ -22,15 +22,17 @@ html(lang="en-US")
 		link(href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap' rel='stylesheet')
 		
 	body
+		#preloader.show
+				img.logo.show(src="./static/images/common/logo-light.svg", alt="")
 		.main-content
 			include ../modules/nav/nav
 			include ../modules/header/header
+			
 			block content
 			include ../modules/footer/footer
 			//- include ../modules/modal/modal
 			//- include ../modules/modal/policy
-			#preloader.show
-				img.logo.show(src="./static/images/common/logo-light.svg", alt="")
+			
 
 		include ../modules/quiz/quiz
 

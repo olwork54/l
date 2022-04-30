@@ -172,6 +172,7 @@ section.features {
             border-radius: 8px;
             overflow: hidden;
             border: 2px solid #f2f2f2;
+            width: 100%;
             max-width: 960px;
 
 
@@ -179,7 +180,6 @@ section.features {
                 object-fit: contain;
                 width: 100%;
                 height: auto;
-
                 // max-height: 640px;
 
             }
