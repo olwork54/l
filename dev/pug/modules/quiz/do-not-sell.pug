@@ -1,0 +1,24 @@
+section.do-not-sell.show
+    .container 
+
+        .modal-body.overflows
+            form#step-form.step-wrapper(action="success.html" method="POST")
+                input.zip-input(type="hidden" name="zip code")
+
+
+                .step.active
+                    .step-title Do not sell my personal information
+                    .subtitle Please enter your email address to help us find your record in our database.
+
+                    .answer-wrapper 
+
+                        .fancy-input 
+                            .input-wrapper
+                                .input-side
+                                    input(name="email" id="input-email" type="text" required="required")
+                                    label(for="input-email") Email address
+                            .error-msg
+                        
+
+                    .aplay-btn-wrapper
+                        button.aplay-btn Do not sell my personal information

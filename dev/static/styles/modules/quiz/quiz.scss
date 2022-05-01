@@ -1,6 +1,7 @@
 section.quiz.modal,
 section.are-you-shure,
-section.to-home-page {
+section.to-home-page,
+section.do-not-sell {
     min-height: 82vh;
     height: auto;
     display: none;
@@ -20,13 +21,13 @@ section.to-home-page {
         justify-content: space-between;
     }
 
-    .logo-link{
+    .logo-link {
         text-decoration: none;
         display: flex;
         width: 100%;
         height: 32px;
 
-        .divider{
+        .divider {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,7 +36,8 @@ section.to-home-page {
             height: 100%;
             margin: 0 8px;
         }
-        img{
+
+        img {
             height: 100%;
             width: auto;
             object-fit: contain;
@@ -465,42 +467,164 @@ section.to-home-page {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        .answer-wrapper{
+
+        .answer-wrapper {
             width: initial;
             max-width: initial;
             margin: 0;
         }
 
-        .col{
+        .col {
 
-            margin:0 0 24px;
+            margin: 0 0 24px;
             width: 100%;
             display: flex;
             flex-direction: column;
         }
-        .top{
+
+        .top {
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            span{
+
+            span {
                 font-size: 1.2em;
                 font-weight: 700;
             }
         }
-        img{
+
+        img {
             width: 16px;
             margin-right: 12px;
             height: auto;
             object-fit: contain;
         }
-        p{
+
+        p {
             font-size: 0.9em;
         }
     }
 }
 
+
+section.do-not-sell {
+    min-height: calc(100vh - 244px);
+
+    .modal-body {
+        margin: 48px auto;
+    }
+
+    .answer-wrapper {
+        max-width: initial;
+    }
+
+    .aplay-btn {
+        max-width: 400px;
+        width: 100%;
+        font-size: 0.8em;
+        margin: 0;
+
+    }
+
+    textarea {
+        border: none;
+        outline: none;
+        background: #f5f6fe;
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        border-radius: 4px;
+        position: relative;
+
+        &::placeholder {
+            color: #000;
+        }
+    }
+    select {
+        // A reset of styles, including removing the default dropdown arrow
+        appearance: none;
+        // Additional resets for further consistency
+        background-color: transparent;
+        border: none;
+        padding: 0 1em 0 0;
+        margin: 0;
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: inherit;
+        line-height: inherit;
+      }
+      select::-ms-expand {
+        display: none;
+      }
+      select {
+        // ...existing styles
+        outline: none;
+    }
+    .custom-select {
+        position: relative;
+        font-family: Arial;
+      }
+      
+      .custom-select select {
+        display: none; /*hide original SELECT element:*/
+      }
+      
+      .select-selected {
+        background-color: #f5f6fe;
+      }
+      
+      /*style the arrow inside the select element:*/
+      .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: rgba(0, 0, 0, 0.1) transparent transparent transparent;
+      }
+      
+      /*point the arrow upwards when the select box is open (active):*/
+      .select-selected.select-arrow-active:after {
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        top: 7px;
+      }
+      
+      /*style the items (options), including the selected item:*/
+      .select-items div,.select-selected {
+        color: #000;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      /*style items (options):*/
+      .select-items {
+        position: absolute;
+        background-color: #f5f6fe;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+      }
+      
+      /*hide the items when the select box is closed:*/
+      .select-hide {
+        display: none;
+      }
+      
+      .select-items div:hover, .same-as-selected {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+}
+
 @media screen and (max-width: 991.8px) {
+
     section.quiz.modal .mopile-confirm,
     section.are-you-shure {
         .aplay-btn-wrapper {

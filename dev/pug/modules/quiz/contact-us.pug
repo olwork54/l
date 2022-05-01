@@ -1,0 +1,50 @@
+section.do-not-sell.show
+    .container 
+
+        .modal-body.overflows
+            form#step-form.step-wrapper(action="#" method="POST")
+                input.zip-input(type="hidden" name="zip code")
+
+
+                .step.active
+                    .step-title Contact HomeBuddy
+                    .subtitle Have a question for HomeBuddy? We’re happy to help! Fill out the form and we'll get back to you.
+
+                    .answer-wrapper 
+
+                        .custom-select(style='width:200px;')
+                            select
+                                option(value='0') Select car:
+                                option(value='1') Audi
+                                option(value='2') BMW
+                                option(value='3') Citroen
+                                option(value='4') Ford
+                                option(value='5') Honda
+                                option(value='6') Jaguar
+                                option(value='7') Land Rover
+                                option(value='8') Mercedes
+                                option(value='9') Mini
+                                option(value='10') Nissan
+                                option(value='11') Toyota
+                                option(value='12') Volvo
+
+
+                        .fancy-input 
+                            .input-wrapper
+                                .input-side
+                                    input(name="name" id="input-name" type="text" required="required")
+                                    label(for="input-name") Full name
+                            .error-msg
+
+                        .fancy-input 
+                            .input-wrapper
+                                .input-side
+                                    input(name="email" id="input-email" type="text" required="required")
+                                    label(for="input-email") Email address
+                            .error-msg
+                        
+                        textarea(name="message", cols="48", rows="5", placeholder="Type your message here...") 
+                        
+
+                    .aplay-btn-wrapper
+                        button.aplay-btn(type="submit") Do not sell my personal information

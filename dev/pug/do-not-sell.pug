@@ -1,0 +1,12 @@
+extends layout/policy
+
+block variables
+	-var title = 'Do not sell my personal information HomeMate.expert'
+	-var lang = 'en'
+
+block content
+	include ./modules/quiz/do-not-sell
+	
+block script 
+	script(src="static/js/do-not-sell.js?v=1.3") 
+
