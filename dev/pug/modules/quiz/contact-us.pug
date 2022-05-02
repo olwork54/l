@@ -12,39 +12,47 @@ section.do-not-sell.show
 
                     .answer-wrapper 
 
-                        .custom-select(style='width:200px;')
-                            select
-                                option(value='0') Select car:
-                                option(value='1') Audi
-                                option(value='2') BMW
-                                option(value='3') Citroen
-                                option(value='4') Ford
-                                option(value='5') Honda
-                                option(value='6') Jaguar
-                                option(value='7') Land Rover
-                                option(value='8') Mercedes
-                                option(value='9') Mini
-                                option(value='10') Nissan
-                                option(value='11') Toyota
-                                option(value='12') Volvo
 
+                        .fancy-select
+                            label Subject
+                            .custom-select
+                                select
+                                    option(value='0') General inquiry
+                                    option(value='1') I’m a contractor/installer interested in a partnership
+                                    option(value='2') Feedback
+       
 
                         .fancy-input 
                             .input-wrapper
                                 .input-side
-                                    input(name="name" id="input-name" type="text" required="required")
+                                    input(name="name" id="input-name" type="text")
                                     label(for="input-name") Full name
                             .error-msg
 
                         .fancy-input 
                             .input-wrapper
                                 .input-side
-                                    input(name="email" id="input-email" type="text" required="required")
+                                    input(name="email" id="input-email" type="text")
                                     label(for="input-email") Email address
                             .error-msg
                         
-                        textarea(name="message", cols="48", rows="5", placeholder="Type your message here...") 
+                        textarea(name="message", cols="48", rows="5", placeholder="Type your message here..." required="required")
                         
 
                     .aplay-btn-wrapper
                         button.aplay-btn(type="submit") Do not sell my personal information
+
+section.thank-you
+    .container 
+        .modal-body
+            .main-step-icon 
+                img.lazyload(data-src="./static/images/common/quiz/email.svg", alt="")
+            .step-wrapper
+
+                .step.active
+                    .step-title Thank you!
+                    .subtitle We will not sell your personal information.
+                    .answer-wrapper
+                    .aplay-btn-wrapper 
+                        a.yes-btn.exit(href="./index.html")  Back to Home
+                        

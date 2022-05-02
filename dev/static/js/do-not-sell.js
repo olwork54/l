@@ -9,44 +9,14 @@
             this.init();
         }
 
-        closeModalWindow() {
-            const mainContent = document.querySelector('.main-content');
-            const zipModal = document.querySelector('.quiz.modal');
-            const shureModal = document.querySelector('.are-you-shure');
-            const toHome = document.querySelector('.to-home-page');
+        openThankYou() {
+            const doNotSell = document.querySelector('.do-not-sell');
+            const thankYou = document.querySelector('.thank-you');
 
-            const errMsg = this.form.querySelectorAll('.error-msg');
-            const aplayBtns = this.form.querySelectorAll(this.applyBtnSelector);
-            const yesNoBtns = this.form.querySelectorAll('.yes-btn, .no-btn');
-            const dataInfo = this.form.querySelectorAll('.data-info');
-            const fancyInput = this.form.querySelectorAll('.fancy-input');
-
-            mainContent.classList.remove('overflow');
-            zipModal.classList.remove('show');
-            shureModal.classList.remove('show');
-            toHome.classList.remove('show');
-
-            this.form.reset();
-            this.toStep(0);
-
-            aplayBtns.forEach(el => {
-                el.classList.remove('hide');
-                if (el.dataset.state === 'disable') {
-                    el.setAttribute('disabled', 'disabled');
-                }
-            })
-            yesNoBtns.forEach(el => el.classList.add('hide'));
-            dataInfo.forEach(el => el.innerText = '');
-            errMsg.forEach(el => el.innerText = '');
-            fancyInput.forEach(el => el.classList.remove('error'))
+            thankYou.classList.add('show');
+            doNotSell.classList.remove('show');
         }
-        toggleConfirmExitWindow() {
-            const zipModal = document.querySelector('.quiz.modal');
-            const shureModal = document.querySelector('.are-you-shure');
 
-            shureModal.classList.toggle('show');
-            zipModal.classList.toggle('show');
-        }
         openGoToHomeWindow() {
             const zipModal = document.querySelector('.quiz.modal');
             const toHome = document.querySelector('.to-home-page');
@@ -99,7 +69,9 @@
         init() {
             this.form.addEventListener('submit', e => {
                 e.preventDefault();
-                if (this.validate(this.form)) this.form.submit();
+                if (this.validate(this.form)) {
+                    this.openThankYou();
+                }
             })
         }
     }
