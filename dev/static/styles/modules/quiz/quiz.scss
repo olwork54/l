@@ -503,6 +503,10 @@ section.are-you-shure.show{
     align-items: flex-start;
 }
 
+section.do-not-sell .modal-body{
+    margin: 48px auto;
+}
+
 section.do-not-sell,
 section.thank-you {
     min-height: calc(100vh - 228px);
