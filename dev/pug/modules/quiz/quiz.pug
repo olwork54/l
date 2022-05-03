@@ -134,7 +134,7 @@ section.quiz.modal
                                 .name: span yes
 
                         .radio-custom
-                            input(name="internal_insurance_coverage" id="internal_insurance_coverage2" type="radio" value="1")
+                            input(name="internal_insurance_coverage" id="internal_insurance_coverage2" type="radio" value="1" )
                             label(for="internal_insurance_coverage2") 
                                 img.lazyload(data-src="./static/images/common/quiz/no.svg", alt="No")
                                 .name: span no
@@ -144,7 +144,7 @@ section.quiz.modal
                     .aplay-btn-wrapper 
                         button.aplay-btn(disabled data-state='disable') next
                         button.no-btn.hide no
-                        button.yes-btn.hide yes
+                        a.yes-btn.hide yes
 
 
 
@@ -154,21 +154,21 @@ section.quiz.modal
                         .fancy-input 
                             .input-wrapper
                                 .input-side
-                                    input(name="name" id="input-name" type="text" required="required")
+                                    input(name="name" id="input-name" type="text" required="required" tabindex=-1)
                                     label(for="input-name") Full name
                             .error-msg
 
                         .fancy-input 
                             .input-wrapper
                                 .input-side
-                                    input(name="email" id="input-email" type="text" required="required")
+                                    input(name="email" id="input-email" type="text" required="required" tabindex=-1)
                                     label(for="input-email") Email
                             .error-msg
                         
                     p.data-info 
 
                     .aplay-btn-wrapper 
-                        button.aplay-btn next
+                        a.aplay-btn next
                         //- button.no-btn.hide no
                         //- button.yes-btn.hide yes
 
@@ -181,14 +181,14 @@ section.quiz.modal
                             .input-wrapper
                                 img.icon.lazyload(data-src="./static/images/common/quiz/lock.svg", alt="Lock")
                                 .input-side
-                                    input(name="tel" id="input-tel" type="text" required="required")
+                                    input(name="tel" id="input-tel" type="text" required="required" tabindex=-1)
                                     label(for="input-tel") Phone number
                             .error-msg
                         
                     p.data-info 
 
                     .aplay-btn-wrapper 
-                        button.aplay-btn next
+                        a.aplay-btn next
                         //- button.no-btn.hide no
                         //- button.yes-btn.hide yes
 
