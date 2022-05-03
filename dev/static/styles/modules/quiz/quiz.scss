@@ -3,20 +3,22 @@ section.are-you-shure,
 section.to-home-page,
 section.do-not-sell,
 section.thank-you {
-    min-height: 82vh;
+    min-height: 88vh;
     height: auto;
     display: none;
     border: none;
     overflow-x: hidden;
+    overflow-y: visible;
     background: transparent;
 
-    .container {
+    &>.container {
         position: relative;
-        padding-top: 8px;
+        padding-top: 0;
         padding-bottom: 0;
     }
 
     .modal-header {
+        padding: 16px;
         display: flex;
         justify-content: space-between;
     }
@@ -493,21 +495,20 @@ section.thank-you {
     }
 }
 
-section.to-home-page{
-    .container{
-        margin-bottom: 24px;
-    }
-    .modal-body{
-        margin-top: 80px;
-    }
+ section.to-home-page {
+    min-height: calc(100vh - 228px);
+ }
+section.are-you-shure.show{
+    display: flex;
+    align-items: flex-start;
 }
 
 section.do-not-sell,
 section.thank-you {
-    min-height: calc(100vh - 244px);
+    min-height: calc(100vh - 228px);
 
     .modal-body {
-        margin: 48px auto;
+        margin: 24px auto;
     }
 
     .answer-wrapper {
@@ -534,6 +535,7 @@ section.thank-you {
         width: 100%;
         max-width: 400px;
         margin-bottom: 24px;
+        margin-top: 8px;
         &::placeholder {
             color: #bbb;
         }
@@ -544,9 +546,7 @@ section.thank-you {
     }
 
     select {
-        // A reset of styles, including removing the default dropdown arrow
         appearance: none;
-        // Additional resets for further consistency
         background-color: transparent;
         border: none;
         padding: 0 1em 0 0;
@@ -571,7 +571,7 @@ section.thank-you {
         background: #f5f6fe;
         width: 100%;
         max-width: 400px;
-        margin-bottom: 24px;
+        margin: 8px ;
         label {
             color: #bbb;
             position: absolute;
@@ -582,7 +582,7 @@ section.thank-you {
     }
 
     .custom-select {
-        margin-top: 8px;
+        margin: 10px 0 4px;
         position: relative;
         display: block;
         width: 100%;
