@@ -193,6 +193,7 @@ section.thank-you {
     .step {
         position: absolute;
         left: 0;
+        top: 24px;
         width: 100%;
         opacity: 0;
         transform: translateX(0);
@@ -222,8 +223,7 @@ section.thank-you {
     }
 
     .step-title {
-        margin: 0;
-        margin-bottom: 16px;
+        margin:  24px 0;
         font-size: 18px;
         line-height: 24px;
         font-weight: 600;
@@ -243,7 +243,8 @@ section.thank-you {
         display: flex;
         align-items: center;
         flex-direction: column;
-        max-width: 280px;
+        max-width: 400px;
+        padding: 0 8px;
         margin: 0 auto 8px;
     }
 
@@ -294,8 +295,8 @@ section.thank-you {
 
     .fancy-input{
         width: 100%;
-        margin-bottom: 24px;
-
+        margin: 8px;
+        
         .input-wrapper {
             background: #f5f6fe;
             display: flex;
@@ -306,8 +307,6 @@ section.thank-you {
             border-radius: 4px;
             position: relative;
         }
-
-
 
         &.error .input-wrapper {
             border: 1px solid #f00;
@@ -432,19 +431,6 @@ section.thank-you {
         border: 1px solid #bdbdbd;
     }
 
-    // .change-phone{
-    //     display: inline-block;
-    //     margin-bottom: 24px;
-    //     text-align: center;
-    //     width: 100%;
-    //     color: $accent-dark;
-    //     cursor: pointer;
-    //     transition: color ease $fast;
-    //     &:hover{
-    //         color: rgb(129, 158, 255);
-    //     }
-    // }
-
     .data-info {
         text-align: center;
         margin-bottom: 8px;
@@ -507,6 +493,14 @@ section.thank-you {
     }
 }
 
+section.to-home-page{
+    .container{
+        margin-bottom: 24px;
+    }
+    .modal-body{
+        margin-top: 80px;
+    }
+}
 
 section.do-not-sell,
 section.thank-you {

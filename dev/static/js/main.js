@@ -22,10 +22,8 @@
   function hidePreloader() {
     let animTime = 0;
     let preloader = document.getElementById('preloader');
-    // let logo = document.querySelector('.logo');
 
     setTimeout(() => {
-      // logo.classList.remove('show');
       setTimeout(() => {
         preloader.style.transition = `visibility ease ${animTime}ms, opacity ease ${animTime}ms`;
         preloader.classList.remove('show');
@@ -717,7 +715,9 @@
 
   window.addEventListener('load', e => {
     hidePreloader();
-    lazyVideoPoster();
+    // setTimeout (() => {
+    //   lazyVideoPoster();
+    // }, 500);
   });
   smoothScroll();
   navHeandler.init();

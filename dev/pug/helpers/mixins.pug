@@ -1,4 +1,4 @@
-mixin icon(name,mod)
+mixin icon(name, mod)
 	if(mod)
 		svg(class="svg-sprite-icon icon-" + name + ' ' + mod)
 			use(xlink:href="static/images/sprite/symbol/sprite.svg#" + name)
@@ -6,9 +6,9 @@ mixin icon(name,mod)
 		svg(class="svg-sprite-icon icon-" + name)
 			use(xlink:href="static/images/sprite/symbol/sprite.svg#" + name)
 
-mixin mixinCard(iconSrc,text)
+mixin mixinCard(iconSrc, text, alt)
 	.card
-		img.img.lazyload(data-src=iconSrc, alt="")
+		img.img.lazyload(data-src=iconSrc, alt=alt)
 		.title= text
 		//- .description= text
 
