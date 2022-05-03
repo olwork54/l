@@ -13,9 +13,9 @@ module.exports = function script() {
   return gulp.src('dev/static/js/*.js')
     // .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
+    // .pipe(babel({
+    //   presets: ['@babel/env']
+    // }))
     .pipe(gulpif(argv.prod, uglify()))
     .pipe(gulp.dest('dist/static/js/'));
 };

@@ -458,7 +458,7 @@
       let error = false;
 
       inputs.forEach(inputEl => {
-        if (inputEl.name === 'tel' && this.validateTel(inputEl)) {
+        if (inputEl.name === 'phone' && this.validateTel(inputEl)) {
           error = true;
         } if (inputEl.name === 'name' && this.validateName(inputEl)) {
           error = true;
@@ -563,8 +563,30 @@
         heroMsgElems.innerText = '';
       }
     }
-
-
+    submitForm(form) {
+          const formInputs = form.querySelectorAll('input, select, button');
+          fetch('api.php', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: new FormData(form)
+          }).then(response => {
+            if (response.status === 200) {
+              document.location.href = './success.html';
+              this.enableFormInputs(formInputs);
+              this.closeModalWindow();
+            }
+          })
+    }
+    enableFormInputs(formInputs) {
+      formInputs.forEach(element => {
+        element.removeAttribute('disabled');
+      });
+    }
+    disableFormInputs(formInputs) {
+      formInputs.forEach(element => {
+        element.setAttribute('disabled', true);
+      });
+    }
     init() {
       const changePhoneEl = this.form.querySelector('.change-phone');
       const closeBtn = document.querySelector('.close-modal-btn');
@@ -572,10 +594,7 @@
       const goHome = document.querySelector('.to-home-page .exit');
       const continueQuiz = document.querySelector('.are-you-shure .continue');
 
-
-      
       function logKey(e) {
-        console.log(e.target, e.code);
         if (e.key === 'Enter' || e.key === 'Tab' ){
           e.preventDefault();
         }
@@ -613,7 +632,7 @@
                 applyBtn.classList.remove('hide');
               }
             })
-          } else if (inputEl.name === 'tel') {
+          } else if (inputEl.name === 'phone') {
             inputEl.addEventListener('input', (e) => {
               var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
               e.target.value = '(' + x[1] + ') ' + x[2] + '-' + x[3];
@@ -678,7 +697,9 @@
 
       this.form.addEventListener('submit', e => {
         e.preventDefault();
-        window.location.href = './success.html';
+        this.submitForm(this.form);
+
+        // window.location.href = './success.html';
       })
     }
   }

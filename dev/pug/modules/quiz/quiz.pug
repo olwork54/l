@@ -19,26 +19,26 @@ section.quiz.modal
             .progress-wrapper
                 #form-progress.progress
             form#step-form.step-wrapper(action="success.html" method="POST")
-                input.zip-input(type="hidden" name="zip code")
+                input.zip-input(type="hidden" name="zip_code")
 
 
                 .step.next(data-info="Let`s get started on your walk-in tub estimate!" data-type="radio") 
                     .step-title What makes you want a walk-in bathtub?
                     .answer-wrapper
                         .radio-custom
-                            input(name="why_interested" id="why_interested-1" type="radio" value="1")
+                            input(name="why_interested" id="why_interested-1" type="radio" value="Security")
                             label(for="why_interested-1") 
                                 img.lazyload(data-src="./static/images/common/quiz/safety.svg", alt="Safety")
                                 .name: span Security
 
                         .radio-custom
-                            input(name="why_interested" id="why_interested-2" type="radio" value="2")
+                            input(name="why_interested" id="why_interested-2" type="radio" value="Healing")
                             label(for="why_interested-2") 
                                 img.lazyload(data-src="./static/images/common/quiz/bath1.svg", alt="Bath")
                                 .name: span Healing
 
                         .radio-custom
-                            input(name="why_interested" id="why_interested-3" type="radio" value="3")
+                            input(name="why_interested" id="why_interested-3" type="radio" value="Other")
                             label(for="why_interested-3") 
                                 img.lazyload(data-src="./static/images/common/quiz/question2.svg", alt="Question")
                                 .name: span Other
@@ -56,14 +56,14 @@ section.quiz.modal
                     .step-title Are you the homeowner?
                     .answer-wrapper
                         .radio-custom
-                            input(name="internal_owner" id="internal_owner1" type="radio" value="1")
-                            label(for="internal_owner1") 
+                            input(name="homeowner" id="owner1" type="radio" value="yes")
+                            label(for="owner1") 
                                 img.lazyload(data-src="./static/images/common/quiz/yes.svg", alt="Yes")
                                 .name: span yes
 
                         .radio-custom
-                            input(name="internal_owner" id="internal_owner2" type="radio" value="2" data-info="Note that our installers require the homeowner be present during an estimate. Would you like to continue?")
-                            label(for="internal_owner2") 
+                            input(name="homeowner" id="owner2" type="radio" value="no" data-info="Note that our installers require the homeowner be present during an estimate. Would you like to continue?")
+                            label(for="owner2") 
                                 img.lazyload(data-src="./static/images/common/quiz/no.svg", alt="No")
                                 .name: span no
 
@@ -80,14 +80,14 @@ section.quiz.modal
                     .step-title Is it a manufactured, modular, or mobile home?
                     .answer-wrapper
                         .radio-custom
-                            input(name="internal_mobile_home" id="internal_mobile_home1" type="radio" value="1" data-info="Unfortunately, our installers do not work with mobile, modular or manufactured homes. Would you still like to continue?")
-                            label(for="internal_mobile_home1") 
+                            input(name="mobile_home" id="mobile_home1" type="radio" value="yes" data-info="Unfortunately, our installers do not work with mobile, modular or manufactured homes. Would you still like to continue?")
+                            label(for="mobile_home1") 
                                 img.lazyload(data-src="./static/images/common/quiz/yes.svg", alt="Yes")
                                 .name: span yes
 
                         .radio-custom
-                            input(name="internal_mobile_home" id="internal_mobile_home2" type="radio" value="2")
-                            label(for="internal_mobile_home2") 
+                            input(name="mobile_home" id="mobile_home2" type="radio" value="no")
+                            label(for="mobile_home2") 
                                 img.lazyload(data-src="./static/images/common/quiz/no.svg", alt="No")
                                 .name: span no
 
@@ -104,14 +104,14 @@ section.quiz.modal
                     .step-title Is there a bathtub or shower that has to be replaced?
                     .answer-wrapper
                         .radio-custom
-                            input(name="internal_existing-tub" id="internal_existing-tub1" type="radio" value="1")
-                            label(for="internal_existing-tub1") 
+                            input(name="existing_tub" id="existing_tub1" type="radio" value="yes")
+                            label(for="existing_tub1") 
                                 img.lazyload(data-src="./static/images/common/quiz/yes.svg", alt="Yes")
                                 .name: span yes
 
                         .radio-custom
-                            input(name="internal_existing-tub" id="internal_existing-tub2" type="radio" value="1" data-info="Unfortunately, our installers can only replace an existing bathtub or shower. Would you still like to continue?")
-                            label(for="internal_existing-tub2") 
+                            input(name="existing_tub" id="existing_tub2" type="radio" value="no" data-info="Unfortunately, our installers can only replace an existing bathtub or shower. Would you still like to continue?")
+                            label(for="existing_tub2") 
                                 img.lazyload(data-src="./static/images/common/quiz/no.svg", alt="No")
                                 .name: span no
 
@@ -128,14 +128,14 @@ section.quiz.modal
                     .step-title Is this request covered by an insurance or VA claim?
                     .answer-wrapper
                         .radio-custom
-                            input(name="internal_insurance_coverage" id="internal_insurance_coverage1" type="radio" value="1" data-info="Unfortunately, our installers do not currently work with insurance or VA claims. Would you still like to continue?")
-                            label(for="internal_insurance_coverage1") 
+                            input(name="insurance_coverage" id="insurance_coverage1" type="radio" value="yes" data-info="Unfortunately, our installers do not currently work with insurance or VA claims. Would you still like to continue?")
+                            label(for="insurance_coverage1") 
                                 img.lazyload(data-src="./static/images/common/quiz/yes.svg", alt="Yes")
                                 .name: span yes
 
                         .radio-custom
-                            input(name="internal_insurance_coverage" id="internal_insurance_coverage2" type="radio" value="1" )
-                            label(for="internal_insurance_coverage2") 
+                            input(name="insurance_coverage" id="insurance_coverage2" type="radio" value="no" )
+                            label(for="insurance_coverage2") 
                                 img.lazyload(data-src="./static/images/common/quiz/no.svg", alt="No")
                                 .name: span no
 
@@ -181,7 +181,7 @@ section.quiz.modal
                             .input-wrapper
                                 img.icon.lazyload(data-src="./static/images/common/quiz/lock.svg", alt="Lock")
                                 .input-side
-                                    input(name="tel" id="input-tel" type="text" required="required" tabindex=-1)
+                                    input(name="phone" id="input-tel" type="text" required="required" tabindex=-1)
                                     label(for="input-tel") Phone number
                             .error-msg
                         
