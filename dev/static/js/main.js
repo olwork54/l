@@ -575,7 +575,8 @@
 
       
       function logKey(e) {
-        if (e.code === '13' || e.code === 'Enter'){
+        console.log(e.target, e.code);
+        if (e.key === 'Enter'){
           e.preventDefault();
         }
       }
