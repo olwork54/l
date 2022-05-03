@@ -572,6 +572,14 @@
       const goHome = document.querySelector('.to-home-page .exit');
       const continueQuiz = document.querySelector('.are-you-shure .continue');
 
+
+      
+      function logKey(e) {
+        if (e.code === '13' || e.code === 'Enter'){
+          e.preventDefault();
+        }
+      }
+
       this.progressUpdate();
 
       this.steps[this.step].classList.remove('prev', 'next');
@@ -611,6 +619,7 @@
               this.updateConfirmPhone(e.target.value);
             });
           }
+          inputEl.addEventListener('keydown', logKey);
         });
 
         try{
@@ -618,6 +627,7 @@
             e.preventDefault();
             this.openGoToHomeWindow();
           })
+          noBtn.addEventListener('keydown', logKey);
         } catch (er) {}
 
         try{
@@ -627,6 +637,7 @@
               this.nextStep();
             }
           })
+          yesBtn.addEventListener('keydown', logKey);
         } catch (er) {}
         
         try {
@@ -636,6 +647,7 @@
               this.nextStep();
             }
           })
+          applyBtn.addEventListener('keydown', logKey);
         } catch (er) {}
       })
 
