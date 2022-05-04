@@ -388,11 +388,11 @@
       const zipModal = document.querySelector('.quiz.modal');
       const shureModal = document.querySelector('.are-you-shure');
       const toHome = document.querySelector('.to-home-page');
-      
+
       const errMsg = this.form.querySelectorAll('.error-msg');
-      const aplayBtns =  this.form.querySelectorAll(this.applyBtnSelector);
-      const yesNoBtns =  this.form.querySelectorAll('.yes-btn, .no-btn');
-      const dataInfo =  this.form.querySelectorAll('.data-info');
+      const aplayBtns = this.form.querySelectorAll(this.applyBtnSelector);
+      const yesNoBtns = this.form.querySelectorAll('.yes-btn, .no-btn');
+      const dataInfo = this.form.querySelectorAll('.data-info');
       const fancyInput = this.form.querySelectorAll('.fancy-input');
 
       mainContent.classList.remove('overflow');
@@ -403,16 +403,16 @@
       this.form.reset();
       this.toStep(0);
 
-      aplayBtns.forEach( el => {
+      aplayBtns.forEach(el => {
         el.classList.remove('hide');
         if (el.dataset.state === 'disable') {
           el.setAttribute('disabled', 'disabled');
         }
       })
-      yesNoBtns.forEach (el => el.classList.add('hide'));
-      dataInfo.forEach (el => el.innerText = '');
-      errMsg.forEach (el => el.innerText = '');
-      fancyInput.forEach (el => el.classList.remove('error'))
+      yesNoBtns.forEach(el => el.classList.add('hide'));
+      dataInfo.forEach(el => el.innerText = '');
+      errMsg.forEach(el => el.innerText = '');
+      fancyInput.forEach(el => el.classList.remove('error'))
     }
     toggleConfirmExitWindow() {
       const zipModal = document.querySelector('.quiz.modal');
@@ -463,7 +463,7 @@
         } if (inputEl.name === 'name' && this.validateName(inputEl)) {
           error = true;
         } else if (inputEl.name === 'email' && this.validateEmail(inputEl)) {
-           error = true;
+          error = true;
         }
       });
 
@@ -498,16 +498,17 @@
     validateName(inputEl) {
       const fancyInput = inputEl.closest('.fancy-input');
       const erorEl = fancyInput.querySelector('.error-msg');
+      const value = inputEl.value.trim();
       let error = false;
       let errText = '';
 
-      if (!inputEl.value) {
+      if (!value) {
         error = true;
         errText = 'Enter your full name please';
-      } else if (!inputEl.value.trim().includes(' ')) {
+      } else if (!value.trim().includes(' ')) {
         error = true;
         errText = 'Enter valid full name: first name and last name'
-      } else if (!this.reg.name.test(inputEl.value)) {
+      } else if (!this.reg.name.test(value)) {
         error = true;
         errText = 'Enter valid full name, only latter and space'
       }
@@ -526,13 +527,15 @@
     validateTel(inputEl) {
       const fancyInput = inputEl.closest('.fancy-input');
       const erorEl = fancyInput.querySelector('.error-msg');
+      const value = inputEl.value.trim();
       let error = false;
       let errText = '';
 
-      if (!inputEl.value) {
+
+      if (!value) {
         error = true;
         errText = 'Enter your phone number please';
-      } else if (inputEl.value.length < 14) {
+      } else if (value.length < 14) {
         error = true;
         errText = 'Enter valid phone number please'
       }
@@ -564,18 +567,45 @@
       }
     }
     submitForm(form) {
-          const formInputs = form.querySelectorAll('input, select, button');
-          fetch('api.php', {
-            method: 'POST',
-            mode: 'no-cors',
-            body: new FormData(form)
-          }).then(response => {
-            if (response.status === 200) {
-              document.location.href = './success.html';
-              this.enableFormInputs(formInputs);
-              this.closeModalWindow();
-            }
-          })
+      const formInputs = form.querySelectorAll('input, select, button');
+      const formData = new FormData(form);
+      let orderObj = {};
+      let orderStr = '';
+      let elemToDel = [];
+
+      for (let elem of formData.entries()) {
+        const key = elem[0];
+        const value = elem[1];
+
+        if (key !== 'name' && key !== 'phone' && key !== 'email') {
+          orderObj[key] = value;
+          elemToDel.push(key);
+        }
+      }
+      elemToDel.forEach( el => formData.delete(el))
+
+      orderStr = JSON.stringify(orderObj);
+      formData.set('order', orderStr);
+      formData.set('stream_key', 'ggxnqHMBjw');
+
+      for (let elem of formData.entries()) {
+        const key = elem[0];
+        const value = elem[1];
+        console.log(key + ': ' + value);
+      }
+
+      fetch('https://hm.afflifter.com/api/leads', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: formData
+      }).then(response => {
+        document.location.href = './success.html';
+        this.enableFormInputs(formInputs);
+        this.closeModalWindow();
+      })
     }
     enableFormInputs(formInputs) {
       formInputs.forEach(element => {
@@ -595,7 +625,7 @@
       const continueQuiz = document.querySelector('.are-you-shure .continue');
 
       function logKey(e) {
-        if (e.key === 'Enter' || e.key === 'Tab' ){
+        if (e.key === 'Enter' || e.key === 'Tab') {
           e.preventDefault();
         }
       }
@@ -642,15 +672,15 @@
           inputEl.addEventListener('keydown', logKey);
         });
 
-        try{
+        try {
           noBtn.addEventListener('click', e => {
             e.preventDefault();
             this.openGoToHomeWindow();
           })
           noBtn.addEventListener('keydown', logKey);
-        } catch (er) {}
+        } catch (er) { }
 
-        try{
+        try {
           yesBtn.addEventListener('click', e => {
             e.preventDefault();
             if (this.validate(stepEl)) {
@@ -658,8 +688,8 @@
             }
           })
           yesBtn.addEventListener('keydown', logKey);
-        } catch (er) {}
-        
+        } catch (er) { }
+
         try {
           applyBtn.addEventListener('click', e => {
             e.preventDefault();
@@ -668,7 +698,7 @@
             }
           })
           applyBtn.addEventListener('keydown', logKey);
-        } catch (er) {}
+        } catch (er) { }
       })
 
       changePhoneEl.addEventListener('click', e => {
@@ -756,6 +786,8 @@
   smoothScroll();
   navHeandler.init();
   zipCodeHeandler();
+
+
 
   // modalFormHeandler.init();
   // modalPolicyHeandler.init();
